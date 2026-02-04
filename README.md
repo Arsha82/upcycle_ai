@@ -9,7 +9,13 @@
 
 <br />
 
-[![Watch the Demo](demo.png)](https://youtu.be/dUZK9wBlSqQ)
+### Application Screenshot
+![Application Screenshot](demo/demo.png)
+
+<br />
+
+### Demo Video
+<video src="demo/demo.mp4" controls autoplay muted loop width="100%"></video>
 
 <br />
 
