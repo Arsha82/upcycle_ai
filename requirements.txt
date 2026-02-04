@@ -1,0 +1,8 @@
+streamlit
+ollama
+Pillow
+airllm
+torch
+transformers
+accelerate
+scipy
