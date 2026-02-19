@@ -17,6 +17,10 @@
 ### Demo Video
 <video src="demo/demo.mp4" controls autoplay muted loop width="100%"></video>
 
+
+https://github.com/user-attachments/assets/bce2bd7e-5c76-4118-b97a-7f4fd5d17ebf
+
+
 <br />
 
 **Local-first, offline-capable AI application to suggest upcycling ideas for waste items.**
