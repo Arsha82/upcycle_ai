@@ -8,7 +8,7 @@ except ImportError:
     ollama = None
 
 class InferenceEngine:
-    def generate_response(self, image_bytes, prompt):
+    def generate_response(self, image_bytes, prompt, use_rag=False):
         raise NotImplementedError
 
 class OllamaEngine(InferenceEngine):
@@ -16,7 +16,7 @@ class OllamaEngine(InferenceEngine):
         self.model_name = model_name
         self.client = ollama.Client(host='http://127.0.0.1:11434')
 
-    def generate_response(self, image_bytes, prompt):
+    def generate_response(self, image_bytes, prompt, use_rag=False):
         if not ollama:
             raise ImportError("Ollama library not found. Please install it.")
         
@@ -46,6 +46,26 @@ class OllamaEngine(InferenceEngine):
                 description = vision_res['response']
                 print(f"DEBUG: Vision Output: {description}")
                 
+                # OPTIONAL RAG STEP:
+                rag_context = ""
+                if use_rag:
+                    from rag_utils import get_rag_manager
+                    
+                    print("DEBUG: Querying Vector DB for related upcycling ideas...")
+                    rag_manager = get_rag_manager()
+                    
+                    # We query using the vision description (e.g. "A clear plastic bottle")
+                    snippets = rag_manager.query(description, n_results=3)
+                    
+                    if snippets:
+                        rag_context = "\n--- RELEVANT KNOWLEDGE BASE SNIPPETS ---\n"
+                        for idx, snip in enumerate(snippets):
+                            rag_context += f"Snippet {idx+1}:\n{snip}\n\n"
+                        rag_context += "------------------------------------------\n"
+                        print("DEBUG: Context found and injected into prompt.")
+                    else:
+                        print("DEBUG: Vector DB returned no results.")
+
                 # STEP 2: REASONING (Llama3)
                 # We use a capable text model for the logic. 
                 # We assume user has llama3 or llama3.1 from previous logs.
@@ -57,8 +77,12 @@ class OllamaEngine(InferenceEngine):
                 The user has uploaded an image of a waste item.
                 A vision model has described it as: "{description}"
                 
+                {rag_context}
+                
                 YOUR TASK:
                 {prompt}
+                
+                IMPORTANT INSTRUCTION: If there are RELEVANT KNOWLEDGE BASE SNIPPETS provided above, highly prioritize using ideas, instructions, and information from those snippets in your response!
                 """
                 
                 print(f"DEBUG: Running Reasoning Step with {reasoning_model}...")
@@ -70,6 +94,11 @@ class OllamaEngine(InferenceEngine):
 
             else:
                 # Standard One-Shot (for Llama 3.2 Vision or LLaVA if it works)
+                
+                # To support RAG here, we would need to run vision FIRST or do two passes.
+                # For MVP, one-shot with RAG without knowing what's in the image is hard.
+                # We will just pass the standard prompt.
+                 
                 response = self.client.generate(
                     model=self.model_name,
                     prompt=prompt,
@@ -110,7 +139,7 @@ class AirLLMEngine(InferenceEngine):
             # For this MVP, let's implement basic loading.
             self.model = AutoModel.from_pretrained(self.model_name)
 
-    def generate_response(self, image_bytes, prompt):
+    def generate_response(self, image_bytes, prompt, use_rag=False):
         self.load_model()
         
         # TODO: AirLLM vision support. 

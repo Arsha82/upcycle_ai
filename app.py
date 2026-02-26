@@ -83,7 +83,7 @@ if st.session_state.view_mode == 'history' and st.session_state.history_item:
         st.session_state.view_mode = 'new'
         st.rerun()
 
-else:
+elif st.session_state.view_mode == 'new':
     # New Scan Mode
     st.markdown("Scan your waste and turn it into something useful!")
     
