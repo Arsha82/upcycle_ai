@@ -46,7 +46,7 @@ class OllamaEngine(InferenceEngine):
                 description = vision_res['response']
                 print(f"DEBUG: Vision Output: {description}")
                 
-                # OPTIONAL RAG STEP:
+                # OPTIONAL RAG STEP & CACHING:
                 rag_context = ""
                 if use_rag:
                     from rag_utils import get_rag_manager
@@ -54,7 +54,14 @@ class OllamaEngine(InferenceEngine):
                     print("DEBUG: Querying Vector DB for related upcycling ideas...")
                     rag_manager = get_rag_manager()
                     
-                    # We query using the vision description (e.g. "A clear plastic bottle")
+                    # 1. CACHE CHECK: Did we already generate ideas for this exact same object type?
+                    # E.g., if vision description is highly similar to a past scan.
+                    cached_text = rag_manager.find_exact_match(description, threshold=0.92)
+                    if cached_text:
+                        print("DEBUG: ⚡ CACHE HIT! Found highly similar past scan. Skipping Llama generation.")
+                        return f"⚡ **[CACHE HIT]** ⚡\n\nWe instantly recognized this item from our Knowledge Base!\n\n{cached_text}"
+
+                    # 2. RAG CONTEXT: If no exact match, grab general knowledge for context
                     snippets = rag_manager.query(description, n_results=3)
                     
                     if snippets:
@@ -90,7 +97,16 @@ class OllamaEngine(InferenceEngine):
                     model=reasoning_model,
                     messages=[{'role': 'user', 'content': full_text_prompt}]
                 )
-                return text_res['message']['content']
+                
+                final_output = text_res['message']['content']
+                
+                # FEEDBACK LOOP: Save this high-quality idea back into the DB for future cache hits
+                if use_rag:
+                    # We save the generated text, keyed by the vision description
+                    rag_manager.add_generated_idea(description, final_output)
+                    print("DEBUG: Feedback loop complete. Saved generated instructions to Knowledge Base.")
+                    
+                return final_output
 
             else:
                 # Standard One-Shot (for Llama 3.2 Vision or LLaVA if it works)

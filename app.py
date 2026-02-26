@@ -169,7 +169,17 @@ elif st.session_state.view_mode == 'kb_manager':
             st.error("upcycle_knowledge.csv not found. Run generate_kb_data.py first.")
             
     st.markdown("---")
-    st.subheader("2. Upload Custom Documents")
+    st.subheader("2. Sync Past History")
+    if st.button("Sync `upcycle.db` History"):
+        if os.path.exists("upcycle.db"):
+            with st.spinner("Porting past scans to Vector DB..."):
+                res = rag_manager.ingest_sqlite_history("upcycle.db")
+                st.success(res)
+        else:
+            st.warning("No upcycle.db found yet. Go scan some items!")
+
+    st.markdown("---")
+    st.subheader("3. Upload Custom Documents")
     uploaded_files = st.file_uploader("Upload PDF or TXT files", type=["pdf", "txt"], accept_multiple_files=True)
     
     if st.button("Process & Ingest Files"):

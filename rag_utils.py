@@ -136,6 +136,109 @@ class RAGManager:
         # Return simply the list of document contents match
         return results['documents'][0]
 
+    def find_exact_match(self, vision_description, threshold=0.90):
+        """Searches for a visually identical previous scan."""
+        query_embedding = self._get_embedding(vision_description)
+        
+        # We query for 1 result
+        results = self.collection.query(
+            query_embeddings=[query_embedding],
+            n_results=1,
+            # We filter specifically for generated feedback to avoid returning raw instructional CSV rows as a full cache hit
+            where={"source": "llm_generated"}
+        )
+        
+        if not results['documents'] or not results['documents'][0]:
+            return None
+            
+        distance = results['distances'][0][0]
+        # In Chroma with cosine similarity, distance is 1 - similarity.
+        # So a distance of < 0.10 means > 0.90 similarity.
+        if distance <= (1 - threshold):
+            return results['documents'][0][0] # Return the cached text
+            
+        return None
+
+    def add_generated_idea(self, vision_description, generated_text):
+        """Saves a good generated idea back into the database."""
+        # We embed the *vision description* so we can easily find it later based on similar images
+        embedding = self._get_embedding(vision_description)
+        
+        import time
+        prefix = int(time.time())
+        doc_id = f"gen_{prefix}"
+        
+        self.collection.add(
+            documents=[generated_text], # The text we RETURN is the generated instructions
+            embeddings=[embedding],     # But the EMBEDDING is based on the description
+            metadatas=[{"source": "llm_generated", "description": vision_description}],
+            ids=[doc_id]
+        )
+        
+        return doc_id
+
+    def ingest_sqlite_history(self, db_path="upcycle.db"):
+        """Reads past scans from upcycle.db and indexes them into ChromaDB."""
+        import sqlite3
+        if not os.path.exists(db_path):
+            return "SQLite DB not found."
+            
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        
+        try:
+            # Table schema from database.py: id, image_path, item_name, api_response, timestamp
+            c.execute('SELECT id, item_name, api_response FROM recipes')
+            rows = c.fetchall()
+        except sqlite3.OperationalError:
+            conn.close()
+            return "Invalid DB schema or table not found."
+            
+        conn.close()
+        
+        if not rows:
+            return "No history found in the database to sync."
+            
+        documents = []
+        embeddings = []
+        metadatas = []
+        ids = []
+        
+        count = 0
+        for row in rows:
+            row_id, item_name, api_response = row
+            doc_id = f"sqlite_{row_id}"
+            
+            # Check if this ID is already synced
+            existing = self.collection.get(ids=[doc_id])
+            if existing and existing['ids']:
+                continue # Skip already synced items
+                
+            # If the item_name isn't great, at least we have the response text
+            description = item_name if item_name and item_name != "Scanned Item" else "Historical Scan"
+            
+            # Embed the description / summary of what it is
+            embedding = self._get_embedding(description)
+            
+            documents.append(api_response)
+            embeddings.append(embedding)
+            metadatas.append({"source": "sqlite_sync", "description": description})
+            ids.append(doc_id)
+            count += 1
+            
+        if count == 0:
+            return "All history items have already been synced."
+            
+        # Batch insert
+        self.collection.add(
+            documents=documents,
+            embeddings=embeddings,
+            metadatas=metadatas,
+            ids=ids
+        )
+        
+        return f"Successfully synced {count} past scans from history."
+
 # Singleton instance for the app to use
 _rag_instance = None
 
