@@ -6,3 +6,7 @@ torch
 transformers
 accelerate
 scipy
+chromadb
+sentence-transformers
+PyPDF2
+pandas

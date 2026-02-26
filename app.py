@@ -5,6 +5,10 @@ from PIL import Image
 from inference import get_inference_engine
 from database import init_db, save_recipe, get_history
 from utils import save_image_to_disk
+from rag_utils import get_rag_manager
+
+# Init RAG Manager
+rag_manager = get_rag_manager()
 
 # Page Config
 st.set_page_config(page_title="Upcycle AI", page_icon="♻️", layout="wide")
@@ -31,9 +35,16 @@ st.sidebar.markdown("### 📜 History")
 if st.sidebar.button("🔄 Refresh"):
     st.rerun()
 
+# Knowledge Bank Button
+if st.sidebar.button("📚 Knowledge Bank"):
+    st.session_state.view_mode = 'kb_manager'
+    st.rerun()
+
 # New Scan Button
 if st.sidebar.button("➕ New Scan"):
     st.session_state.view_mode = 'new'
+    st.session_state.history_item = None
+    st.rerun()
     st.session_state.history_item = None
     st.rerun()
 
@@ -104,6 +115,11 @@ else:
                     img_bytes = img_byte_arr.getvalue()
                     
                     # Advanced Prompt Engineering
+                    # Extract the context from the knowledge bank first.
+                    # Since we don't have the object identified yet (vision runs in inference.py),
+                    # we will modify inference.py to handle the RAG lookup OR we can do a quick vision here.
+                    # Given the structure, let's pass an indicator to inference engine that we want RAG.
+                    
                     base_prompt = """
                     You are an expert DIY and Upcycling Assistant. A user has uploaded an image of a waste item.
                     
@@ -121,7 +137,7 @@ else:
                     Format your response with clear Markdown headings (##) and bullet points. Be enthusiastic and encouraging!
                     """
                     
-                    response = engine.generate_response(img_bytes, base_prompt)
+                    response = engine.generate_response(img_bytes, base_prompt, use_rag=True)
                     
                     st.success("Analysis Complete!")
                     st.markdown(response)
@@ -137,3 +153,39 @@ else:
                     
                 except Exception as e:
                     st.error(f"An error occurred: {e}")
+
+elif st.session_state.view_mode == 'kb_manager':
+    # Knowledge Bank Manager UI
+    st.header("📚 Manage Knowledge Bank")
+    st.markdown("Populate your local Vector Database with UPcycling ideas and project instructions!")
+    
+    st.subheader("1. Ingest Synthetic Dataset")
+    if st.button("Ingest `upcycle_knowledge.csv`"):
+        if os.path.exists("upcycle_knowledge.csv"):
+            with st.spinner("Ingesting 150 project ideas..."):
+                res = rag_manager.ingest_csv("upcycle_knowledge.csv")
+                st.success(res)
+        else:
+            st.error("upcycle_knowledge.csv not found. Run generate_kb_data.py first.")
+            
+    st.markdown("---")
+    st.subheader("2. Upload Custom Documents")
+    uploaded_files = st.file_uploader("Upload PDF or TXT files", type=["pdf", "txt"], accept_multiple_files=True)
+    
+    if st.button("Process & Ingest Files"):
+        if uploaded_files:
+            for f in uploaded_files:
+                with st.spinner(f"Ingesting {f.name}..."):
+                    bytes_data = f.getvalue()
+                    is_pdf = f.name.lower().endswith('.pdf')
+                    res = rag_manager.ingest_document(f.name, bytes_data, is_pdf)
+                    st.success(res)
+        else:
+            st.warning("Please upload at least one file.")
+            
+    # Show stats
+    try:
+        count = rag_manager.collection.count()
+        st.info(f"**Knowledge Bank Size:** {count} total chunks/documents stored.")
+    except Exception:
+        pass
