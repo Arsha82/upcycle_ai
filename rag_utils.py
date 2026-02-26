@@ -42,11 +42,16 @@ class RAGManager:
         ids = []
 
         for index, row in df.iterrows():
-            # Create a rich document string for embedding
+            # Create the rich document string we actually want to RETURN
             doc_text = f"Material: {row['Material']}. Project: {row['Project Idea']}. Difficulty: {row['Difficulty']}. Time: {row['Time to Complete']}.\nInstructions:\n{row['Instructions']}"
-            
             documents.append(doc_text)
-            embeddings.append(self._get_embedding(doc_text))
+            
+            # **CRITICAL OPTIMIZATION**: Instead of embedding the full instructional text,
+            # we embed the specific visual descriptors the vision model will likely output.
+            # This ensures a much tighter mathematical match during RAG query search.
+            vision_target = row.get('Vision Description Target', row['Material'])
+            embeddings.append(self._get_embedding(str(vision_target)))
+            
             metadatas.append({
                 "source": "csv_seed",
                 "material": row['Material'],
@@ -62,7 +67,7 @@ class RAGManager:
             ids=ids
         )
         
-        return f"Successfully ingested {len(documents)} projects from CSV."
+        return f"Successfully ingested {len(documents)} optimized projects from CSV."
 
     def extract_text_from_pdf(self, pdf_file):
         """Extracts text from a PyPDF2 supported file object."""
@@ -133,10 +138,16 @@ class RAGManager:
         if not results['documents'] or not results['documents'][0]:
             return []
             
-        # Return simply the list of document contents match
-        return results['documents'][0]
+        filtered_docs = []
+        for i, doc in enumerate(results['documents'][0]):
+            distance = results['distances'][0][i]
+            # Only include snippets that are reasonably relevant (distance < 0.6)
+            if distance <= 0.6:
+                filtered_docs.append(doc)
+                
+        return filtered_docs
 
-    def find_exact_match(self, vision_description, threshold=0.90):
+    def find_exact_match(self, vision_description, threshold=0.15):
         """Searches for a visually identical previous scan."""
         query_embedding = self._get_embedding(vision_description)
         
@@ -152,11 +163,15 @@ class RAGManager:
             return None
             
         distance = results['distances'][0][0]
-        # In Chroma with cosine similarity, distance is 1 - similarity.
-        # So a distance of < 0.10 means > 0.90 similarity.
-        if distance <= (1 - threshold):
+        print(f"DEBUG: Cache Hit Check - Best Match Distance: {distance:.4f} (Threshold: {threshold})")
+        
+        # In Chroma with cosine similarity, lower distance means higher similarity.
+        # A distance of 0.0 is a perfect match.
+        if distance <= threshold:
+            print(f"DEBUG: Cache hit successful! Distance {distance:.4f} is <= {threshold}")
             return results['documents'][0][0] # Return the cached text
             
+        print("DEBUG: Cache hit failed. Distance too high.")
         return None
 
     def add_generated_idea(self, vision_description, generated_text):

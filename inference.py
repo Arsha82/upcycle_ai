@@ -56,7 +56,7 @@ class OllamaEngine(InferenceEngine):
                     
                     # 1. CACHE CHECK: Did we already generate ideas for this exact same object type?
                     # E.g., if vision description is highly similar to a past scan.
-                    cached_text = rag_manager.find_exact_match(description, threshold=0.92)
+                    cached_text = rag_manager.find_exact_match(description, threshold=0.15)
                     if cached_text:
                         print("DEBUG: ⚡ CACHE HIT! Found highly similar past scan. Skipping Llama generation.")
                         return f"⚡ **[CACHE HIT]** ⚡\n\nWe instantly recognized this item from our Knowledge Base!\n\n{cached_text}"

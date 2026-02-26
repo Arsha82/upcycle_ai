@@ -1,659 +1,737 @@
 ID,Material,Project Idea,Difficulty,Time to Complete,Instructions
-1,Newspaper,Minimalist Newspaper Lamp,Easy,84 minutes,"Step 1: Fold the sides carefully.
-Step 2: Clean the sides carefully.
-Step 3: Cut the sides carefully."
-2,Wood Pallet,Modern Wood Pallet Organizer,Intermediate,40 minutes,"Step 1: Fold the main body carefully.
-Step 2: Glue the base carefully.
-Step 3: Glue the top carefully.
-Step 4: Fold the sides carefully.
-Step 5: Fold the main body carefully."
-3,CDs/DVDs,Rustic CDs/DVDs Storage Box,Advanced,108 minutes,"Step 1: Paint the main body carefully.
-Step 2: Fold the main body carefully.
-Step 3: Clean the top carefully.
-Step 4: Paint the top carefully."
-4,Tin Can,Decorative Tin Can Storage Box,Easy,87 minutes,"Step 1: Clean the top carefully.
-Step 2: Glue the main body carefully.
-Step 3: Assemble the base carefully.
-Step 4: Cut the sides carefully.
-Step 5: Assemble the main body carefully.
-Step 6: Cut the base carefully."
-5,Wood Pallet,Functional Wood Pallet Organizer,Advanced,83 minutes,"Step 1: Fold the sides carefully.
-Step 2: Assemble the top carefully.
-Step 3: Attach the decorative pieces carefully.
-Step 4: Paint the base carefully.
-Step 5: Paint the sides carefully."
-6,CDs/DVDs,Colorful CDs/DVDs Storage Box,Easy,13 minutes,"Step 1: Assemble the base carefully.
-Step 2: Attach the top carefully.
-Step 3: Fold the main body carefully.
-Step 4: Paint the base carefully."
-7,Wine Cork,Colorful Wine Cork Storage Box,Easy,95 minutes,"Step 1: Paint the main body carefully.
-Step 2: Assemble the sides carefully.
-Step 3: Cut the decorative pieces carefully."
-8,Wood Pallet,Minimalist Wood Pallet Storage Box,Advanced,67 minutes,"Step 1: Cut the main body carefully.
-Step 2: Cut the decorative pieces carefully.
-Step 3: Clean the sides carefully.
-Step 4: Glue the sides carefully."
-9,Old T-Shirt,Colorful Old T-Shirt Coaster,Easy,60 minutes,"Step 1: Clean the sides carefully.
-Step 2: Paint the main body carefully.
-Step 3: Fold the main body carefully.
-Step 4: Clean the sides carefully.
-Step 5: Cut the main body carefully.
-Step 6: Glue the sides carefully."
-10,Wine Cork,Hanging Wine Cork Planter,Easy,64 minutes,"Step 1: Attach the top carefully.
-Step 2: Attach the main body carefully.
-Step 3: Fold the decorative pieces carefully.
-Step 4: Paint the top carefully."
-11,Glass Jar,Hanging Glass Jar Organizer,Easy,28 minutes,"Step 1: Cut the main body carefully.
-Step 2: Cut the decorative pieces carefully.
-Step 3: Cut the main body carefully.
-Step 4: Paint the decorative pieces carefully."
-12,Wood Pallet,Colorful Wood Pallet Lamp,Intermediate,63 minutes,"Step 1: Clean the base carefully.
-Step 2: Cut the main body carefully.
-Step 3: Attach the decorative pieces carefully.
-Step 4: Clean the sides carefully."
-13,Tin Can,Minimalist Tin Can Bird Feeder,Easy,38 minutes,"Step 1: Paint the sides carefully.
-Step 2: Assemble the sides carefully.
-Step 3: Assemble the top carefully."
-14,Tin Can,Rustic Tin Can Planter,Easy,78 minutes,"Step 1: Attach the sides carefully.
-Step 2: Paint the base carefully.
-Step 3: Clean the top carefully.
-Step 4: Attach the top carefully."
-15,Newspaper,Hanging Newspaper Coaster,Intermediate,50 minutes,"Step 1: Fold the sides carefully.
-Step 2: Cut the base carefully.
-Step 3: Glue the main body carefully.
-Step 4: Clean the main body carefully.
-Step 5: Assemble the top carefully."
-16,Newspaper,Colorful Newspaper Coaster,Advanced,82 minutes,"Step 1: Attach the base carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Fold the decorative pieces carefully.
-Step 4: Clean the main body carefully."
-17,Tin Can,Hanging Tin Can Planter,Easy,32 minutes,"Step 1: Fold the sides carefully.
-Step 2: Cut the sides carefully.
-Step 3: Attach the base carefully.
-Step 4: Fold the sides carefully.
-Step 5: Clean the sides carefully."
-18,Old T-Shirt,Minimalist Old T-Shirt Bird Feeder,Easy,57 minutes,"Step 1: Fold the base carefully.
-Step 2: Clean the base carefully.
-Step 3: Fold the top carefully."
-19,Egg Carton,Functional Egg Carton Planter,Intermediate,94 minutes,"Step 1: Attach the decorative pieces carefully.
-Step 2: Fold the base carefully.
-Step 3: Glue the top carefully.
-Step 4: Paint the sides carefully.
-Step 5: Glue the main body carefully."
-20,Newspaper,Decorative Newspaper Wall Art,Easy,88 minutes,"Step 1: Glue the top carefully.
-Step 2: Paint the decorative pieces carefully.
-Step 3: Attach the decorative pieces carefully.
-Step 4: Attach the base carefully.
-Step 5: Clean the main body carefully."
-21,CDs/DVDs,Hanging CDs/DVDs Lamp,Intermediate,86 minutes,"Step 1: Glue the base carefully.
-Step 2: Fold the base carefully.
-Step 3: Glue the decorative pieces carefully.
-Step 4: Fold the sides carefully.
-Step 5: Assemble the top carefully."
-22,CDs/DVDs,Decorative CDs/DVDs Wall Art,Easy,16 minutes,"Step 1: Cut the sides carefully.
-Step 2: Assemble the decorative pieces carefully.
-Step 3: Glue the sides carefully.
-Step 4: Glue the decorative pieces carefully.
-Step 5: Paint the decorative pieces carefully."
-23,Newspaper,Rustic Newspaper Planter,Advanced,83 minutes,"Step 1: Paint the sides carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Clean the sides carefully.
-Step 4: Paint the decorative pieces carefully.
-Step 5: Cut the sides carefully.
-Step 6: Glue the top carefully."
-24,Old T-Shirt,Rustic Old T-Shirt Lamp,Intermediate,57 minutes,"Step 1: Clean the main body carefully.
-Step 2: Attach the sides carefully.
-Step 3: Attach the base carefully.
-Step 4: Glue the decorative pieces carefully."
-25,Cardboard Box,Functional Cardboard Box Coaster,Easy,31 minutes,"Step 1: Clean the sides carefully.
-Step 2: Paint the sides carefully.
-Step 3: Glue the top carefully."
-26,Glass Jar,Hanging Glass Jar Organizer,Easy,89 minutes,"Step 1: Paint the main body carefully.
-Step 2: Attach the decorative pieces carefully.
-Step 3: Clean the decorative pieces carefully.
-Step 4: Paint the decorative pieces carefully.
-Step 5: Clean the sides carefully.
-Step 6: Glue the main body carefully."
-27,CDs/DVDs,Modern CDs/DVDs Planter,Intermediate,36 minutes,"Step 1: Assemble the decorative pieces carefully.
-Step 2: Fold the decorative pieces carefully.
-Step 3: Fold the decorative pieces carefully."
-28,Wood Pallet,Functional Wood Pallet Bird Feeder,Easy,38 minutes,"Step 1: Clean the main body carefully.
-Step 2: Cut the top carefully.
-Step 3: Fold the main body carefully.
-Step 4: Glue the top carefully."
-29,Wine Cork,Colorful Wine Cork Lamp,Intermediate,48 minutes,"Step 1: Attach the decorative pieces carefully.
-Step 2: Clean the main body carefully.
-Step 3: Fold the sides carefully.
-Step 4: Fold the top carefully.
-Step 5: Glue the top carefully.
-Step 6: Clean the main body carefully."
-30,Cardboard Box,Decorative Cardboard Box Organizer,Intermediate,26 minutes,"Step 1: Attach the main body carefully.
-Step 2: Paint the top carefully.
-Step 3: Paint the top carefully.
-Step 4: Paint the base carefully."
-31,Wood Pallet,Functional Wood Pallet Bird Feeder,Easy,42 minutes,"Step 1: Assemble the top carefully.
-Step 2: Paint the top carefully.
-Step 3: Attach the base carefully.
-Step 4: Fold the main body carefully.
-Step 5: Paint the base carefully."
-32,Plastic Bottle,Hanging Plastic Bottle Storage Box,Intermediate,33 minutes,"Step 1: Clean the top carefully.
-Step 2: Glue the top carefully.
-Step 3: Attach the sides carefully."
-33,Glass Jar,Modern Glass Jar Storage Box,Advanced,98 minutes,"Step 1: Fold the top carefully.
-Step 2: Attach the main body carefully.
-Step 3: Fold the top carefully."
-34,CDs/DVDs,Colorful CDs/DVDs Bird Feeder,Easy,23 minutes,"Step 1: Glue the base carefully.
-Step 2: Assemble the decorative pieces carefully.
-Step 3: Attach the top carefully."
-35,Wine Cork,Colorful Wine Cork Coaster,Advanced,51 minutes,"Step 1: Clean the sides carefully.
-Step 2: Fold the decorative pieces carefully.
-Step 3: Assemble the sides carefully."
-36,CDs/DVDs,Minimalist CDs/DVDs Bird Feeder,Advanced,106 minutes,"Step 1: Assemble the decorative pieces carefully.
-Step 2: Clean the sides carefully.
-Step 3: Glue the decorative pieces carefully.
-Step 4: Cut the decorative pieces carefully."
-37,Cardboard Box,Minimalist Cardboard Box Lamp,Easy,66 minutes,"Step 1: Attach the sides carefully.
-Step 2: Cut the base carefully.
-Step 3: Glue the base carefully.
-Step 4: Fold the decorative pieces carefully."
-38,Wine Cork,Hanging Wine Cork Storage Box,Intermediate,90 minutes,"Step 1: Attach the base carefully.
-Step 2: Attach the base carefully.
-Step 3: Fold the sides carefully.
-Step 4: Clean the sides carefully."
-39,Wood Pallet,Modern Wood Pallet Storage Box,Easy,88 minutes,"Step 1: Fold the top carefully.
-Step 2: Glue the base carefully.
-Step 3: Cut the base carefully.
-Step 4: Assemble the main body carefully."
-40,Plastic Bottle,Decorative Plastic Bottle Organizer,Intermediate,37 minutes,"Step 1: Cut the main body carefully.
-Step 2: Paint the top carefully.
-Step 3: Assemble the main body carefully."
-41,Egg Carton,Minimalist Egg Carton Organizer,Easy,17 minutes,"Step 1: Glue the top carefully.
-Step 2: Clean the base carefully.
-Step 3: Attach the decorative pieces carefully."
-42,Wine Cork,Functional Wine Cork Planter,Intermediate,25 minutes,"Step 1: Attach the main body carefully.
-Step 2: Paint the main body carefully.
-Step 3: Attach the base carefully.
-Step 4: Clean the top carefully.
-Step 5: Glue the main body carefully."
-43,Plastic Bottle,Decorative Plastic Bottle Planter,Easy,88 minutes,"Step 1: Glue the main body carefully.
-Step 2: Cut the main body carefully.
-Step 3: Paint the main body carefully."
-44,Tin Can,Hanging Tin Can Lamp,Intermediate,59 minutes,"Step 1: Paint the base carefully.
-Step 2: Cut the main body carefully.
-Step 3: Cut the base carefully.
-Step 4: Attach the decorative pieces carefully.
-Step 5: Clean the decorative pieces carefully.
-Step 6: Paint the sides carefully."
-45,Tin Can,Decorative Tin Can Organizer,Easy,96 minutes,"Step 1: Fold the top carefully.
-Step 2: Attach the base carefully.
-Step 3: Assemble the main body carefully."
-46,Old T-Shirt,Decorative Old T-Shirt Organizer,Intermediate,106 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Cut the main body carefully.
-Step 3: Assemble the decorative pieces carefully.
-Step 4: Glue the main body carefully.
-Step 5: Fold the main body carefully."
-47,Old T-Shirt,Minimalist Old T-Shirt Storage Box,Intermediate,110 minutes,"Step 1: Fold the sides carefully.
-Step 2: Attach the top carefully.
-Step 3: Clean the base carefully.
-Step 4: Paint the decorative pieces carefully."
-48,Plastic Bottle,Colorful Plastic Bottle Wall Art,Advanced,104 minutes,"Step 1: Clean the sides carefully.
-Step 2: Fold the base carefully.
-Step 3: Attach the decorative pieces carefully.
-Step 4: Cut the base carefully.
-Step 5: Cut the main body carefully."
-49,Cardboard Box,Colorful Cardboard Box Bird Feeder,Intermediate,38 minutes,"Step 1: Attach the decorative pieces carefully.
-Step 2: Clean the top carefully.
-Step 3: Glue the decorative pieces carefully.
-Step 4: Cut the main body carefully.
-Step 5: Attach the top carefully."
-50,Newspaper,Rustic Newspaper Lamp,Easy,81 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Assemble the base carefully.
-Step 3: Glue the sides carefully."
-51,Old T-Shirt,Decorative Old T-Shirt Planter,Easy,114 minutes,"Step 1: Clean the base carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Glue the sides carefully.
-Step 4: Cut the decorative pieces carefully.
-Step 5: Glue the main body carefully."
-52,Egg Carton,Minimalist Egg Carton Organizer,Easy,18 minutes,"Step 1: Glue the sides carefully.
-Step 2: Clean the base carefully.
-Step 3: Cut the base carefully.
-Step 4: Clean the decorative pieces carefully.
-Step 5: Cut the sides carefully.
-Step 6: Cut the top carefully."
-53,Tin Can,Functional Tin Can Wall Art,Advanced,82 minutes,"Step 1: Glue the sides carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Glue the top carefully.
-Step 4: Fold the main body carefully."
-54,Glass Jar,Colorful Glass Jar Coaster,Advanced,28 minutes,"Step 1: Assemble the sides carefully.
-Step 2: Cut the decorative pieces carefully.
-Step 3: Cut the base carefully.
-Step 4: Fold the top carefully.
-Step 5: Cut the sides carefully.
-Step 6: Attach the top carefully."
-55,Egg Carton,Modern Egg Carton Coaster,Easy,13 minutes,"Step 1: Assemble the decorative pieces carefully.
-Step 2: Attach the main body carefully.
-Step 3: Clean the sides carefully.
-Step 4: Paint the decorative pieces carefully."
-56,Egg Carton,Modern Egg Carton Bird Feeder,Easy,80 minutes,"Step 1: Attach the sides carefully.
-Step 2: Glue the base carefully.
-Step 3: Fold the base carefully.
-Step 4: Glue the decorative pieces carefully.
-Step 5: Paint the main body carefully."
-57,Old T-Shirt,Modern Old T-Shirt Lamp,Easy,103 minutes,"Step 1: Clean the base carefully.
-Step 2: Attach the main body carefully.
-Step 3: Clean the base carefully.
-Step 4: Glue the main body carefully."
-58,CDs/DVDs,Decorative CDs/DVDs Bird Feeder,Advanced,23 minutes,"Step 1: Cut the top carefully.
-Step 2: Clean the sides carefully.
-Step 3: Cut the base carefully.
-Step 4: Assemble the base carefully.
-Step 5: Attach the top carefully."
-59,Wine Cork,Decorative Wine Cork Coaster,Easy,30 minutes,"Step 1: Attach the base carefully.
-Step 2: Attach the main body carefully.
-Step 3: Clean the decorative pieces carefully.
-Step 4: Attach the sides carefully."
-60,Wine Cork,Minimalist Wine Cork Organizer,Intermediate,107 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Attach the decorative pieces carefully.
-Step 3: Attach the decorative pieces carefully.
-Step 4: Clean the top carefully.
-Step 5: Glue the decorative pieces carefully.
-Step 6: Cut the decorative pieces carefully."
-61,Old T-Shirt,Minimalist Old T-Shirt Coaster,Advanced,103 minutes,"Step 1: Paint the main body carefully.
-Step 2: Cut the sides carefully.
-Step 3: Fold the decorative pieces carefully."
-62,Plastic Bottle,Minimalist Plastic Bottle Coaster,Easy,77 minutes,"Step 1: Cut the sides carefully.
-Step 2: Cut the top carefully.
-Step 3: Fold the main body carefully.
-Step 4: Glue the decorative pieces carefully.
-Step 5: Glue the base carefully.
-Step 6: Assemble the top carefully."
-63,Wood Pallet,Decorative Wood Pallet Storage Box,Intermediate,70 minutes,"Step 1: Assemble the top carefully.
-Step 2: Fold the sides carefully.
-Step 3: Cut the base carefully.
-Step 4: Cut the sides carefully."
-64,Wood Pallet,Decorative Wood Pallet Bird Feeder,Easy,39 minutes,"Step 1: Cut the main body carefully.
-Step 2: Clean the base carefully.
-Step 3: Clean the top carefully.
-Step 4: Attach the sides carefully.
-Step 5: Attach the base carefully."
-65,Tin Can,Minimalist Tin Can Coaster,Intermediate,104 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Glue the base carefully.
-Step 3: Paint the main body carefully.
-Step 4: Clean the top carefully.
-Step 5: Assemble the sides carefully."
-66,Wood Pallet,Colorful Wood Pallet Coaster,Intermediate,20 minutes,"Step 1: Paint the sides carefully.
-Step 2: Cut the decorative pieces carefully.
-Step 3: Assemble the main body carefully."
-67,Old T-Shirt,Decorative Old T-Shirt Wall Art,Easy,99 minutes,"Step 1: Paint the main body carefully.
-Step 2: Paint the sides carefully.
-Step 3: Attach the top carefully."
-68,CDs/DVDs,Rustic CDs/DVDs Lamp,Intermediate,78 minutes,"Step 1: Cut the top carefully.
-Step 2: Clean the base carefully.
-Step 3: Paint the sides carefully.
-Step 4: Glue the decorative pieces carefully.
-Step 5: Fold the base carefully.
-Step 6: Assemble the base carefully."
-69,Plastic Bottle,Hanging Plastic Bottle Storage Box,Advanced,113 minutes,"Step 1: Assemble the main body carefully.
-Step 2: Attach the top carefully.
-Step 3: Paint the top carefully.
-Step 4: Assemble the top carefully.
-Step 5: Clean the base carefully.
-Step 6: Clean the top carefully."
-70,Wine Cork,Hanging Wine Cork Wall Art,Easy,67 minutes,"Step 1: Clean the top carefully.
-Step 2: Paint the decorative pieces carefully.
-Step 3: Attach the top carefully.
-Step 4: Assemble the sides carefully.
-Step 5: Fold the base carefully."
-71,Wood Pallet,Functional Wood Pallet Storage Box,Intermediate,105 minutes,"Step 1: Attach the top carefully.
-Step 2: Fold the main body carefully.
-Step 3: Cut the top carefully.
-Step 4: Fold the decorative pieces carefully."
-72,Old T-Shirt,Functional Old T-Shirt Lamp,Advanced,21 minutes,"Step 1: Fold the top carefully.
-Step 2: Paint the main body carefully.
-Step 3: Cut the main body carefully.
-Step 4: Attach the main body carefully."
-73,Egg Carton,Modern Egg Carton Planter,Easy,22 minutes,"Step 1: Cut the base carefully.
-Step 2: Fold the main body carefully.
-Step 3: Cut the top carefully.
-Step 4: Attach the sides carefully."
-74,CDs/DVDs,Rustic CDs/DVDs Organizer,Intermediate,116 minutes,"Step 1: Assemble the base carefully.
-Step 2: Attach the decorative pieces carefully.
-Step 3: Paint the sides carefully.
-Step 4: Assemble the main body carefully."
-75,Wood Pallet,Decorative Wood Pallet Organizer,Advanced,33 minutes,"Step 1: Clean the decorative pieces carefully.
-Step 2: Fold the sides carefully.
-Step 3: Paint the top carefully.
-Step 4: Fold the top carefully.
-Step 5: Fold the main body carefully.
-Step 6: Cut the base carefully."
-76,Egg Carton,Decorative Egg Carton Lamp,Intermediate,71 minutes,"Step 1: Clean the sides carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Assemble the top carefully."
-77,Wood Pallet,Decorative Wood Pallet Wall Art,Intermediate,73 minutes,"Step 1: Cut the base carefully.
-Step 2: Fold the base carefully.
-Step 3: Glue the main body carefully.
-Step 4: Assemble the main body carefully.
-Step 5: Assemble the sides carefully.
-Step 6: Assemble the decorative pieces carefully."
-78,Egg Carton,Decorative Egg Carton Planter,Easy,101 minutes,"Step 1: Paint the top carefully.
-Step 2: Clean the sides carefully.
-Step 3: Clean the sides carefully.
-Step 4: Attach the decorative pieces carefully.
-Step 5: Cut the decorative pieces carefully.
-Step 6: Cut the top carefully."
-79,Tin Can,Functional Tin Can Wall Art,Intermediate,107 minutes,"Step 1: Clean the sides carefully.
-Step 2: Cut the main body carefully.
-Step 3: Fold the base carefully.
-Step 4: Attach the top carefully.
-Step 5: Cut the top carefully."
-80,Plastic Bottle,Hanging Plastic Bottle Organizer,Intermediate,14 minutes,"Step 1: Cut the base carefully.
-Step 2: Fold the decorative pieces carefully.
-Step 3: Fold the sides carefully."
-81,Old T-Shirt,Modern Old T-Shirt Bird Feeder,Easy,118 minutes,"Step 1: Glue the top carefully.
-Step 2: Cut the decorative pieces carefully.
-Step 3: Cut the main body carefully.
-Step 4: Attach the top carefully.
-Step 5: Cut the sides carefully."
-82,Egg Carton,Hanging Egg Carton Coaster,Easy,41 minutes,"Step 1: Clean the main body carefully.
-Step 2: Attach the main body carefully.
-Step 3: Glue the top carefully.
-Step 4: Glue the main body carefully."
-83,Newspaper,Hanging Newspaper Coaster,Advanced,11 minutes,"Step 1: Paint the base carefully.
-Step 2: Paint the top carefully.
-Step 3: Cut the main body carefully."
-84,Wood Pallet,Rustic Wood Pallet Bird Feeder,Intermediate,85 minutes,"Step 1: Assemble the top carefully.
-Step 2: Glue the main body carefully.
-Step 3: Fold the main body carefully."
-85,Glass Jar,Modern Glass Jar Bird Feeder,Advanced,100 minutes,"Step 1: Fold the sides carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Glue the top carefully.
-Step 4: Paint the decorative pieces carefully."
-86,Old T-Shirt,Hanging Old T-Shirt Storage Box,Advanced,81 minutes,"Step 1: Cut the decorative pieces carefully.
-Step 2: Glue the decorative pieces carefully.
-Step 3: Cut the top carefully.
-Step 4: Clean the base carefully."
-87,Newspaper,Minimalist Newspaper Storage Box,Intermediate,26 minutes,"Step 1: Glue the base carefully.
-Step 2: Fold the main body carefully.
-Step 3: Assemble the base carefully.
-Step 4: Glue the sides carefully."
-88,Tin Can,Minimalist Tin Can Organizer,Intermediate,46 minutes,"Step 1: Paint the base carefully.
-Step 2: Assemble the top carefully.
-Step 3: Attach the top carefully.
-Step 4: Glue the decorative pieces carefully.
-Step 5: Glue the main body carefully."
-89,Newspaper,Minimalist Newspaper Bird Feeder,Easy,19 minutes,"Step 1: Clean the sides carefully.
-Step 2: Paint the top carefully.
-Step 3: Attach the top carefully."
-90,Tin Can,Rustic Tin Can Organizer,Easy,83 minutes,"Step 1: Cut the sides carefully.
-Step 2: Glue the base carefully.
-Step 3: Clean the main body carefully."
-91,Old T-Shirt,Decorative Old T-Shirt Coaster,Advanced,113 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Attach the top carefully.
-Step 3: Glue the base carefully.
-Step 4: Assemble the base carefully.
-Step 5: Assemble the base carefully."
-92,Newspaper,Rustic Newspaper Organizer,Intermediate,71 minutes,"Step 1: Attach the decorative pieces carefully.
-Step 2: Cut the base carefully.
-Step 3: Paint the base carefully.
-Step 4: Attach the base carefully.
-Step 5: Cut the decorative pieces carefully."
-93,CDs/DVDs,Decorative CDs/DVDs Bird Feeder,Advanced,56 minutes,"Step 1: Clean the base carefully.
-Step 2: Fold the main body carefully.
-Step 3: Paint the main body carefully."
-94,Plastic Bottle,Rustic Plastic Bottle Lamp,Advanced,24 minutes,"Step 1: Cut the decorative pieces carefully.
-Step 2: Glue the top carefully.
-Step 3: Clean the top carefully.
-Step 4: Cut the top carefully.
-Step 5: Glue the decorative pieces carefully.
-Step 6: Assemble the base carefully."
-95,Newspaper,Colorful Newspaper Coaster,Easy,87 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Fold the main body carefully.
-Step 3: Assemble the decorative pieces carefully.
-Step 4: Assemble the main body carefully."
-96,Glass Jar,Modern Glass Jar Lamp,Easy,30 minutes,"Step 1: Attach the top carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Cut the decorative pieces carefully.
-Step 4: Assemble the sides carefully.
-Step 5: Clean the decorative pieces carefully.
-Step 6: Clean the sides carefully."
-97,CDs/DVDs,Rustic CDs/DVDs Organizer,Advanced,76 minutes,"Step 1: Cut the sides carefully.
-Step 2: Fold the decorative pieces carefully.
-Step 3: Glue the base carefully."
-98,Old T-Shirt,Modern Old T-Shirt Wall Art,Advanced,27 minutes,"Step 1: Paint the top carefully.
-Step 2: Clean the main body carefully.
-Step 3: Assemble the top carefully.
-Step 4: Attach the decorative pieces carefully."
-99,Egg Carton,Hanging Egg Carton Lamp,Intermediate,116 minutes,"Step 1: Paint the top carefully.
-Step 2: Attach the main body carefully.
-Step 3: Fold the decorative pieces carefully."
-100,Old T-Shirt,Functional Old T-Shirt Lamp,Easy,60 minutes,"Step 1: Fold the base carefully.
-Step 2: Fold the main body carefully.
-Step 3: Clean the sides carefully.
-Step 4: Attach the sides carefully.
-Step 5: Attach the top carefully."
-101,Wine Cork,Minimalist Wine Cork Organizer,Advanced,58 minutes,"Step 1: Clean the sides carefully.
-Step 2: Fold the sides carefully.
-Step 3: Clean the top carefully.
-Step 4: Paint the base carefully."
-102,Plastic Bottle,Decorative Plastic Bottle Storage Box,Easy,51 minutes,"Step 1: Assemble the top carefully.
-Step 2: Cut the main body carefully.
-Step 3: Attach the top carefully.
-Step 4: Clean the base carefully."
-103,Old T-Shirt,Hanging Old T-Shirt Coaster,Intermediate,11 minutes,"Step 1: Fold the main body carefully.
-Step 2: Assemble the top carefully.
-Step 3: Paint the decorative pieces carefully."
-104,Newspaper,Modern Newspaper Wall Art,Easy,112 minutes,"Step 1: Fold the base carefully.
-Step 2: Paint the top carefully.
-Step 3: Assemble the top carefully.
-Step 4: Assemble the main body carefully.
-Step 5: Clean the sides carefully."
-105,Tin Can,Hanging Tin Can Storage Box,Easy,14 minutes,"Step 1: Glue the top carefully.
-Step 2: Paint the decorative pieces carefully.
-Step 3: Fold the main body carefully.
-Step 4: Fold the main body carefully.
-Step 5: Cut the top carefully."
-106,Glass Jar,Decorative Glass Jar Planter,Easy,42 minutes,"Step 1: Assemble the sides carefully.
-Step 2: Paint the main body carefully.
-Step 3: Clean the base carefully."
-107,Plastic Bottle,Modern Plastic Bottle Wall Art,Intermediate,63 minutes,"Step 1: Attach the decorative pieces carefully.
-Step 2: Assemble the top carefully.
-Step 3: Glue the main body carefully.
-Step 4: Attach the sides carefully.
-Step 5: Attach the top carefully.
-Step 6: Paint the sides carefully."
-108,Tin Can,Rustic Tin Can Coaster,Easy,50 minutes,"Step 1: Glue the main body carefully.
-Step 2: Paint the top carefully.
-Step 3: Cut the base carefully."
-109,Wine Cork,Minimalist Wine Cork Organizer,Intermediate,34 minutes,"Step 1: Fold the main body carefully.
-Step 2: Paint the sides carefully.
-Step 3: Glue the sides carefully.
-Step 4: Cut the decorative pieces carefully.
-Step 5: Fold the base carefully."
-110,CDs/DVDs,Hanging CDs/DVDs Planter,Intermediate,105 minutes,"Step 1: Assemble the decorative pieces carefully.
-Step 2: Paint the top carefully.
-Step 3: Assemble the sides carefully.
-Step 4: Glue the main body carefully."
-111,Glass Jar,Minimalist Glass Jar Lamp,Intermediate,49 minutes,"Step 1: Fold the main body carefully.
-Step 2: Cut the decorative pieces carefully.
-Step 3: Attach the decorative pieces carefully.
-Step 4: Clean the main body carefully.
-Step 5: Paint the sides carefully."
-112,Old T-Shirt,Colorful Old T-Shirt Organizer,Intermediate,14 minutes,"Step 1: Clean the top carefully.
-Step 2: Assemble the top carefully.
-Step 3: Glue the decorative pieces carefully.
-Step 4: Attach the base carefully."
-113,Wood Pallet,Functional Wood Pallet Wall Art,Easy,67 minutes,"Step 1: Clean the sides carefully.
-Step 2: Cut the top carefully.
-Step 3: Paint the main body carefully.
-Step 4: Attach the base carefully."
-114,Egg Carton,Rustic Egg Carton Storage Box,Easy,28 minutes,"Step 1: Glue the main body carefully.
-Step 2: Assemble the sides carefully.
-Step 3: Clean the top carefully."
-115,Wine Cork,Minimalist Wine Cork Planter,Advanced,90 minutes,"Step 1: Cut the top carefully.
-Step 2: Fold the main body carefully.
-Step 3: Fold the top carefully.
-Step 4: Cut the top carefully."
-116,Wood Pallet,Minimalist Wood Pallet Planter,Advanced,70 minutes,"Step 1: Cut the base carefully.
-Step 2: Cut the top carefully.
-Step 3: Glue the top carefully.
-Step 4: Cut the sides carefully.
-Step 5: Cut the main body carefully.
-Step 6: Fold the main body carefully."
-117,Tin Can,Hanging Tin Can Bird Feeder,Advanced,114 minutes,"Step 1: Cut the base carefully.
-Step 2: Glue the top carefully.
-Step 3: Fold the main body carefully.
-Step 4: Fold the decorative pieces carefully.
-Step 5: Fold the decorative pieces carefully.
-Step 6: Fold the main body carefully."
-118,Newspaper,Rustic Newspaper Organizer,Advanced,12 minutes,"Step 1: Cut the decorative pieces carefully.
-Step 2: Cut the top carefully.
-Step 3: Cut the sides carefully.
-Step 4: Attach the decorative pieces carefully.
-Step 5: Assemble the main body carefully.
-Step 6: Clean the main body carefully."
-119,Newspaper,Minimalist Newspaper Planter,Advanced,97 minutes,"Step 1: Assemble the top carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Paint the top carefully.
-Step 4: Paint the sides carefully."
-120,Cardboard Box,Decorative Cardboard Box Wall Art,Easy,82 minutes,"Step 1: Clean the sides carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Assemble the top carefully.
-Step 4: Assemble the base carefully.
-Step 5: Fold the main body carefully.
-Step 6: Glue the decorative pieces carefully."
-121,Newspaper,Minimalist Newspaper Bird Feeder,Easy,29 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Glue the main body carefully.
-Step 3: Cut the decorative pieces carefully.
-Step 4: Cut the decorative pieces carefully.
-Step 5: Assemble the main body carefully."
-122,Cardboard Box,Functional Cardboard Box Planter,Intermediate,109 minutes,"Step 1: Paint the base carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Cut the top carefully.
-Step 4: Attach the main body carefully.
-Step 5: Clean the top carefully."
-123,Plastic Bottle,Decorative Plastic Bottle Storage Box,Intermediate,71 minutes,"Step 1: Assemble the base carefully.
-Step 2: Glue the top carefully.
-Step 3: Glue the base carefully."
-124,Newspaper,Decorative Newspaper Planter,Intermediate,69 minutes,"Step 1: Cut the main body carefully.
-Step 2: Paint the base carefully.
-Step 3: Paint the decorative pieces carefully.
-Step 4: Clean the top carefully.
-Step 5: Attach the top carefully.
-Step 6: Paint the decorative pieces carefully."
-125,Newspaper,Functional Newspaper Planter,Easy,104 minutes,"Step 1: Paint the sides carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Assemble the main body carefully."
-126,Glass Jar,Decorative Glass Jar Bird Feeder,Easy,91 minutes,"Step 1: Fold the main body carefully.
-Step 2: Attach the decorative pieces carefully.
-Step 3: Paint the top carefully.
-Step 4: Cut the top carefully.
-Step 5: Glue the main body carefully."
-127,Wood Pallet,Decorative Wood Pallet Lamp,Advanced,34 minutes,"Step 1: Fold the top carefully.
-Step 2: Glue the top carefully.
-Step 3: Clean the base carefully.
-Step 4: Glue the base carefully.
-Step 5: Cut the sides carefully."
-128,Cardboard Box,Rustic Cardboard Box Wall Art,Intermediate,37 minutes,"Step 1: Paint the base carefully.
-Step 2: Paint the main body carefully.
-Step 3: Glue the top carefully."
-129,Old T-Shirt,Decorative Old T-Shirt Organizer,Advanced,16 minutes,"Step 1: Glue the sides carefully.
-Step 2: Paint the sides carefully.
-Step 3: Paint the sides carefully.
-Step 4: Cut the sides carefully.
-Step 5: Cut the main body carefully.
-Step 6: Attach the top carefully."
-130,Wood Pallet,Colorful Wood Pallet Wall Art,Advanced,110 minutes,"Step 1: Fold the top carefully.
-Step 2: Fold the sides carefully.
-Step 3: Glue the top carefully.
-Step 4: Clean the top carefully.
-Step 5: Fold the top carefully."
-131,CDs/DVDs,Decorative CDs/DVDs Wall Art,Advanced,33 minutes,"Step 1: Cut the base carefully.
-Step 2: Attach the decorative pieces carefully.
-Step 3: Paint the sides carefully.
-Step 4: Attach the decorative pieces carefully."
-132,Glass Jar,Rustic Glass Jar Lamp,Advanced,75 minutes,"Step 1: Clean the sides carefully.
-Step 2: Paint the decorative pieces carefully.
-Step 3: Clean the top carefully."
-133,Plastic Bottle,Hanging Plastic Bottle Storage Box,Intermediate,55 minutes,"Step 1: Attach the decorative pieces carefully.
-Step 2: Glue the decorative pieces carefully.
-Step 3: Paint the base carefully.
-Step 4: Clean the base carefully.
-Step 5: Clean the sides carefully."
-134,Glass Jar,Functional Glass Jar Wall Art,Advanced,112 minutes,"Step 1: Assemble the base carefully.
-Step 2: Fold the sides carefully.
-Step 3: Fold the main body carefully."
-135,Old T-Shirt,Modern Old T-Shirt Coaster,Advanced,66 minutes,"Step 1: Fold the base carefully.
-Step 2: Cut the top carefully.
-Step 3: Fold the decorative pieces carefully.
-Step 4: Glue the main body carefully.
-Step 5: Clean the top carefully.
-Step 6: Clean the top carefully."
-136,Wine Cork,Decorative Wine Cork Coaster,Intermediate,14 minutes,"Step 1: Attach the sides carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Attach the sides carefully."
-137,Glass Jar,Modern Glass Jar Planter,Advanced,116 minutes,"Step 1: Fold the main body carefully.
-Step 2: Clean the decorative pieces carefully.
-Step 3: Glue the top carefully.
-Step 4: Assemble the main body carefully.
-Step 5: Attach the sides carefully."
-138,Wine Cork,Modern Wine Cork Bird Feeder,Easy,34 minutes,"Step 1: Clean the decorative pieces carefully.
-Step 2: Attach the top carefully.
-Step 3: Clean the top carefully.
-Step 4: Cut the main body carefully.
-Step 5: Glue the main body carefully."
-139,Plastic Bottle,Minimalist Plastic Bottle Planter,Easy,92 minutes,"Step 1: Assemble the top carefully.
-Step 2: Assemble the main body carefully.
-Step 3: Cut the sides carefully.
-Step 4: Fold the top carefully."
-140,Cardboard Box,Hanging Cardboard Box Planter,Advanced,67 minutes,"Step 1: Fold the base carefully.
-Step 2: Fold the decorative pieces carefully.
-Step 3: Glue the decorative pieces carefully.
-Step 4: Assemble the main body carefully."
-141,Cardboard Box,Rustic Cardboard Box Storage Box,Easy,19 minutes,"Step 1: Cut the sides carefully.
-Step 2: Glue the base carefully.
-Step 3: Cut the main body carefully.
-Step 4: Fold the sides carefully.
-Step 5: Fold the main body carefully.
-Step 6: Paint the base carefully."
-142,Cardboard Box,Colorful Cardboard Box Organizer,Easy,86 minutes,"Step 1: Clean the top carefully.
-Step 2: Glue the top carefully.
-Step 3: Clean the base carefully.
-Step 4: Fold the base carefully.
-Step 5: Fold the main body carefully."
-143,Wood Pallet,Colorful Wood Pallet Wall Art,Intermediate,33 minutes,"Step 1: Clean the main body carefully.
-Step 2: Paint the sides carefully.
-Step 3: Cut the top carefully.
-Step 4: Paint the main body carefully."
-144,CDs/DVDs,Minimalist CDs/DVDs Bird Feeder,Advanced,92 minutes,"Step 1: Assemble the main body carefully.
-Step 2: Fold the main body carefully.
-Step 3: Clean the main body carefully.
-Step 4: Paint the sides carefully.
-Step 5: Clean the main body carefully.
-Step 6: Cut the base carefully."
-145,Old T-Shirt,Decorative Old T-Shirt Coaster,Intermediate,77 minutes,"Step 1: Paint the top carefully.
-Step 2: Fold the sides carefully.
-Step 3: Glue the main body carefully.
-Step 4: Glue the top carefully.
-Step 5: Paint the sides carefully.
-Step 6: Fold the main body carefully."
-146,CDs/DVDs,Modern CDs/DVDs Coaster,Easy,110 minutes,"Step 1: Clean the main body carefully.
-Step 2: Fold the main body carefully.
-Step 3: Assemble the decorative pieces carefully.
-Step 4: Clean the sides carefully."
-147,Cardboard Box,Rustic Cardboard Box Coaster,Intermediate,30 minutes,"Step 1: Fold the top carefully.
-Step 2: Attach the sides carefully.
-Step 3: Cut the top carefully.
-Step 4: Paint the top carefully.
-Step 5: Fold the base carefully."
-148,Tin Can,Colorful Tin Can Planter,Advanced,26 minutes,"Step 1: Cut the main body carefully.
-Step 2: Paint the decorative pieces carefully.
-Step 3: Attach the base carefully."
-149,Tin Can,Minimalist Tin Can Storage Box,Advanced,84 minutes,"Step 1: Paint the decorative pieces carefully.
-Step 2: Cut the sides carefully.
-Step 3: Assemble the decorative pieces carefully.
-Step 4: Clean the top carefully.
-Step 5: Attach the decorative pieces carefully.
-Step 6: Clean the decorative pieces carefully."
-150,Cardboard Box,Functional Cardboard Box Storage Box,Intermediate,56 minutes,"Step 1: Glue the decorative pieces carefully.
-Step 2: Cut the sides carefully.
-Step 3: Clean the base carefully."
+1,Cardboard Box,Cat Scratching Pad Variation #69,Intermediate,62 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+2,Pencil Shavings,Pencil Shaving Art Variation #33,Easy,22 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+3,Egg Carton,Seed Starters Variation #33,Easy,18 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+4,Plastic Bottle,Self-Watering Planter Variation #99,Easy,12 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+5,Cardboard Box,Drawer Organizers Variation #23,Easy,30 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+6,Plastic Bottle,Self-Watering Planter Variation #64,Easy,15 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+7,Newspaper,Paper Mache Bowl Variation #85,Intermediate,66 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+8,Egg Carton,Seed Starters Variation #28,Easy,13 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+9,Egg Carton,Seed Starters Variation #65,Easy,10 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+10,Wood Pallet,Vertical Garden Variation #60,Advanced,116 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+11,Old T-Shirt,Braided Dog Toy Variation #54,Easy,25 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+12,Tin Can,Herb Garden Planters Variation #71,Easy,23 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+13,Tin Can,Herb Garden Planters Variation #35,Easy,20 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+14,Plastic Bottle,Bird Feeder Variation #22,Easy,19 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+15,Cardboard Box,Drawer Organizers Variation #87,Easy,37 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+16,Egg Carton,Seed Starters Variation #69,Easy,18 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+17,Glass Jar,Rustic Candle Holder Variation #36,Easy,18 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+18,Old T-Shirt,Reusable Produce Bag Variation #97,Intermediate,38 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+19,Old T-Shirt,Reusable Produce Bag Variation #46,Intermediate,37 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+20,Glass Jar,Rustic Candle Holder Variation #24,Easy,15 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+21,Wood Pallet,Vertical Garden Variation #30,Advanced,122 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+22,Tin Can,Pencil Holder Variation #9,Easy,20 minutes,"1. Remove labels and thoroughly clean the tin can.
+2. Measure a piece of decorative wrapping paper or fabric to fit around the can.
+3. Coat the can in Mod Podge or craft glue.
+4. Carefully wrap the paper around the can, smoothing out any air bubbles.
+5. Apply a top coat of Mod Podge to seal it."
+23,Egg Carton,Seed Starters Variation #30,Easy,6 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+24,Pencil Shavings,Pencil Shaving Art Variation #49,Easy,25 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+25,Tin Can,Herb Garden Planters Variation #95,Easy,23 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+26,Egg Carton,Seed Starters Variation #15,Easy,14 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+27,Glass Jar,Rustic Candle Holder Variation #15,Easy,13 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+28,Wine Cork,Cork Board Variation #14,Intermediate,41 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+29,Pencil Shavings,Pencil Shaving Art Variation #65,Easy,24 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+30,Wood Pallet,Vertical Garden Variation #15,Advanced,128 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+31,Old T-Shirt,Braided Dog Toy Variation #75,Easy,23 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+32,Wine Cork,Cork Board Variation #32,Intermediate,51 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+33,Old T-Shirt,Braided Dog Toy Variation #43,Easy,15 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+34,Glass Jar,Terrarium Variation #37,Intermediate,42 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+35,Cardboard Box,Cat Scratching Pad Variation #25,Intermediate,69 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+36,Old T-Shirt,Braided Dog Toy Variation #52,Easy,22 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+37,Cardboard Box,Drawer Organizers Variation #75,Easy,32 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+38,Tin Can,Herb Garden Planters Variation #56,Easy,18 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+39,Newspaper,Paper Mache Bowl Variation #70,Intermediate,60 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+40,Pencil Shavings,Pencil Shaving Art Variation #40,Easy,17 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+41,Glass Jar,Rustic Candle Holder Variation #85,Easy,16 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+42,Tin Can,Herb Garden Planters Variation #9,Easy,18 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+43,Wine Cork,Cork Board Variation #60,Intermediate,41 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+44,Wood Pallet,Vertical Garden Variation #82,Advanced,125 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+45,Old T-Shirt,Reusable Produce Bag Variation #3,Intermediate,25 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+46,Old T-Shirt,Braided Dog Toy Variation #17,Easy,15 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+47,Glass Jar,Terrarium Variation #93,Intermediate,42 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+48,Cardboard Box,Cat Scratching Pad Variation #11,Intermediate,68 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+49,Pencil Shavings,Pencil Shaving Art Variation #65,Easy,22 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+50,Wine Cork,Cork Board Variation #93,Intermediate,47 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+51,Cardboard Box,Cat Scratching Pad Variation #6,Intermediate,55 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+52,Tin Can,Herb Garden Planters Variation #29,Easy,19 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+53,Newspaper,Paper Mache Bowl Variation #62,Intermediate,62 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+54,Egg Carton,Seed Starters Variation #12,Easy,19 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+55,Cardboard Box,Cat Scratching Pad Variation #67,Intermediate,69 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+56,Plastic Bottle,Self-Watering Planter Variation #20,Easy,16 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+57,Egg Carton,Seed Starters Variation #3,Easy,14 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+58,Wood Pallet,Vertical Garden Variation #64,Advanced,127 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+59,Glass Jar,Terrarium Variation #78,Intermediate,53 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+60,Newspaper,Paper Mache Bowl Variation #93,Intermediate,63 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+61,Cardboard Box,Cat Scratching Pad Variation #52,Intermediate,61 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+62,Wood Pallet,Vertical Garden Variation #60,Advanced,129 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+63,Wood Pallet,Vertical Garden Variation #17,Advanced,128 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+64,Cardboard Box,Drawer Organizers Variation #1,Easy,25 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+65,Cardboard Box,Cat Scratching Pad Variation #32,Intermediate,67 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+66,Old T-Shirt,Reusable Produce Bag Variation #14,Intermediate,39 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+67,Wine Cork,Cork Board Variation #23,Intermediate,50 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+68,Pencil Shavings,Pencil Shaving Art Variation #76,Easy,13 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+69,Glass Jar,Terrarium Variation #19,Intermediate,49 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+70,Egg Carton,Seed Starters Variation #23,Easy,8 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+71,Plastic Bottle,Bird Feeder Variation #59,Easy,20 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+72,Tin Can,Herb Garden Planters Variation #89,Easy,24 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+73,Glass Jar,Rustic Candle Holder Variation #45,Easy,12 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+74,Cardboard Box,Cat Scratching Pad Variation #11,Intermediate,69 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+75,Tin Can,Pencil Holder Variation #55,Easy,20 minutes,"1. Remove labels and thoroughly clean the tin can.
+2. Measure a piece of decorative wrapping paper or fabric to fit around the can.
+3. Coat the can in Mod Podge or craft glue.
+4. Carefully wrap the paper around the can, smoothing out any air bubbles.
+5. Apply a top coat of Mod Podge to seal it."
+76,Plastic Bottle,Bird Feeder Variation #78,Easy,26 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+77,Wood Pallet,Vertical Garden Variation #72,Advanced,118 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+78,Old T-Shirt,Reusable Produce Bag Variation #55,Intermediate,32 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+79,Cardboard Box,Drawer Organizers Variation #15,Easy,34 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+80,Wine Cork,Cork Board Variation #88,Intermediate,54 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+81,Old T-Shirt,Braided Dog Toy Variation #22,Easy,21 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+82,Old T-Shirt,Braided Dog Toy Variation #67,Easy,18 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+83,Old T-Shirt,Reusable Produce Bag Variation #95,Intermediate,26 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+84,Plastic Bottle,Bird Feeder Variation #29,Easy,26 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+85,Newspaper,Paper Mache Bowl Variation #95,Intermediate,63 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+86,Glass Jar,Rustic Candle Holder Variation #3,Easy,5 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+87,Pencil Shavings,Pencil Shaving Art Variation #7,Easy,18 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+88,Pencil Shavings,Pencil Shaving Art Variation #64,Easy,24 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+89,Old T-Shirt,Reusable Produce Bag Variation #9,Intermediate,32 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+90,Cardboard Box,Cat Scratching Pad Variation #79,Intermediate,56 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+91,Plastic Bottle,Self-Watering Planter Variation #77,Easy,12 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+92,Old T-Shirt,Braided Dog Toy Variation #42,Easy,18 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+93,Old T-Shirt,Reusable Produce Bag Variation #52,Intermediate,32 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+94,Old T-Shirt,Braided Dog Toy Variation #92,Easy,16 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+95,Newspaper,Paper Mache Bowl Variation #21,Intermediate,61 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+96,Cardboard Box,Cat Scratching Pad Variation #89,Intermediate,70 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+97,Egg Carton,Seed Starters Variation #28,Easy,19 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+98,Cardboard Box,Drawer Organizers Variation #43,Easy,30 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+99,Egg Carton,Seed Starters Variation #90,Easy,10 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+100,Cardboard Box,Drawer Organizers Variation #6,Easy,40 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+101,Cardboard Box,Drawer Organizers Variation #41,Easy,26 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+102,Cardboard Box,Drawer Organizers Variation #50,Easy,39 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+103,Newspaper,Paper Mache Bowl Variation #69,Intermediate,69 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+104,Egg Carton,Seed Starters Variation #27,Easy,16 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+105,Newspaper,Paper Mache Bowl Variation #5,Intermediate,60 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+106,Glass Jar,Terrarium Variation #5,Intermediate,41 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+107,Old T-Shirt,Braided Dog Toy Variation #97,Easy,22 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+108,Cardboard Box,Cat Scratching Pad Variation #2,Intermediate,68 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+109,Glass Jar,Terrarium Variation #51,Intermediate,51 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+110,Plastic Bottle,Self-Watering Planter Variation #16,Easy,17 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+111,Old T-Shirt,Braided Dog Toy Variation #28,Easy,14 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+112,Tin Can,Herb Garden Planters Variation #15,Easy,24 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+113,Glass Jar,Rustic Candle Holder Variation #16,Easy,6 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+114,Cardboard Box,Drawer Organizers Variation #9,Easy,34 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+115,Tin Can,Herb Garden Planters Variation #93,Easy,24 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+116,Plastic Bottle,Bird Feeder Variation #62,Easy,16 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+117,Glass Jar,Rustic Candle Holder Variation #37,Easy,12 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+118,Plastic Bottle,Self-Watering Planter Variation #93,Easy,25 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+119,Egg Carton,Seed Starters Variation #54,Easy,13 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+120,Wood Pallet,Vertical Garden Variation #52,Advanced,128 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+121,Wine Cork,Cork Board Variation #39,Intermediate,48 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+122,Glass Jar,Rustic Candle Holder Variation #47,Easy,8 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+123,Glass Jar,Terrarium Variation #84,Intermediate,52 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+124,Wine Cork,Cork Board Variation #73,Intermediate,51 minutes,"1. Collect around 50-100 wine corks.
+2. Find an old picture frame and remove the glass.
+3. Arrange the corks tightly inside the frame to ensure they fit. You can arrange them horizontally, vertically, or in a herringbone pattern.
+4. Use hot glue to secure each cork to the backing board of the frame.
+5. Hang on the wall and use pushpins to attach notes and photos."
+125,Egg Carton,Seed Starters Variation #17,Easy,17 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+126,Old T-Shirt,Braided Dog Toy Variation #52,Easy,18 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+127,Glass Jar,Terrarium Variation #20,Intermediate,45 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+128,Old T-Shirt,Reusable Produce Bag Variation #56,Intermediate,30 minutes,"1. Lay the t-shirt flat and cut off the sleeves and the neckline.
+2. Turn the shirt inside out and sew (or strongly tie) the bottom hem closed.
+3. Turn it right-side out.
+4. Using scissors, cut small 1-inch horizontal slits all over the body of the shirt, staggered like bricks.
+5. Stretch the bag to open up the slits, creating a flexible mesh."
+129,Glass Jar,Rustic Candle Holder Variation #27,Easy,6 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+130,Pencil Shavings,Pencil Shaving Art Variation #42,Easy,20 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+131,Old T-Shirt,Braided Dog Toy Variation #40,Easy,11 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+132,Cardboard Box,Drawer Organizers Variation #42,Easy,34 minutes,"1. Measure the height and width of your drawer.
+2. Cut the cardboard box into strips that match the drawer's height.
+3. Cut slits halfway through the strips where they will intersect.
+4. Slot the cardboard strips together to form a grid.
+5. Place the grid into your drawer to organize socks, underwear, or office supplies."
+133,Tin Can,Pencil Holder Variation #41,Easy,17 minutes,"1. Remove labels and thoroughly clean the tin can.
+2. Measure a piece of decorative wrapping paper or fabric to fit around the can.
+3. Coat the can in Mod Podge or craft glue.
+4. Carefully wrap the paper around the can, smoothing out any air bubbles.
+5. Apply a top coat of Mod Podge to seal it."
+134,Tin Can,Herb Garden Planters Variation #83,Easy,22 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+135,Old T-Shirt,Braided Dog Toy Variation #95,Easy,17 minutes,"1. Cut the old t-shirt into long strips, about 1-2 inches wide.
+2. Gather 3 strips together and tie a tight knot at one end.
+3. Braid the three strips together tightly.
+4. Tie another strong knot at the other end.
+5. Trim the excess fabric past the knots to create tassels."
+136,Cardboard Box,Cat Scratching Pad Variation #92,Intermediate,69 minutes,"1. Cut the cardboard box into long strips exactly 2-inches wide.
+2. Take the first strip and roll it up as tightly as possible, securing the end with hot glue.
+3. Take the next strip and continue rolling it around the first one, gluing as you go.
+4. Continue until the circle is about 12-15 inches wide.
+5. Sprinkle with catnip!"
+137,Glass Jar,Rustic Candle Holder Variation #96,Easy,8 minutes,"1. Remove any labels from the glass jar using warm soapy water.
+2. Wrap twine or jute rope tightly around the neck of the jar 3-4 times and tie a bow.
+3. Optional: Hot glue small dried flowers to the twine.
+4. Place a tealight or small pillar candle inside the jar."
+138,Tin Can,Herb Garden Planters Variation #59,Easy,29 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."
+139,Glass Jar,Terrarium Variation #65,Intermediate,40 minutes,"1. Clean the glass jar until sparkling.
+2. Add a 1-inch layer of small pebbles for drainage at the bottom.
+3. Add a thin layer of activated charcoal to keep the water fresh.
+4. Add 2-3 inches of potting soil.
+5. Carefully plant small humidity-loving plants (like ferns or moss).
+6. Mist lightly with water and seal the jar."
+140,Newspaper,Paper Mache Bowl Variation #60,Intermediate,55 minutes,"1. Tear the newspaper into 1-inch strips.
+2. Mix 1 part flour with 2 parts water to create a paste.
+3. Cover a glass bowl with plastic wrap (this will be your mold).
+4. Dip newspaper strips into the paste, wipe off excess, and layer them over the outside of the bowl.
+5. Apply 3-4 layers. Let dry completely (24-48 hours), then pop the paper bowl off the mold and paint it."
+141,Wood Pallet,Vertical Garden Variation #28,Advanced,126 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+142,Plastic Bottle,Bird Feeder Variation #8,Easy,17 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+143,Pencil Shavings,Pencil Shaving Art Variation #14,Easy,13 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+144,Pencil Shavings,Pencil Shaving Art Variation #30,Easy,17 minutes,"1. Collect dry, clean pencil shavings (the circular wooden ruffles).
+2. Sketch a simple drawing on paper, like a peacock, a flower, or a dancer's skirt.
+3. Apply craft glue to the areas where you want texture.
+4. Carefully press the pencil shavings into the glue to form petals, feathers, or dresses.
+5. Use colored pencils to finish the rest of the drawing."
+145,Plastic Bottle,Self-Watering Planter Variation #51,Easy,12 minutes,"1. Cut the plastic bottle in half using utility scissors.
+2. Invert the top half (with the cap off) and place it inside the bottom half.
+3. Thread a piece of cotton string through the cap hole to act as a wick.
+4. Fill the top half with soil and your plant.
+5. Fill the bottom half with water. The string will pull water up to the soil!"
+146,Wood Pallet,Vertical Garden Variation #87,Advanced,126 minutes,"1. Inspect the wood pallet for loose nails and sand down rough spots.
+2. Staple landscaping fabric tightly to the back, bottom, and sides of the pallet.
+3. Lay the pallet flat on the ground and fill it completely with potting soil.
+4. Plant succulents or herbs tightly in the slats.
+5. Leave flat for 2 weeks to let roots establish, then stand it up vertically."
+147,Plastic Bottle,Bird Feeder Variation #73,Easy,16 minutes,"1. Thoroughly clean and dry the plastic bottle.
+2. Cut two small holes opposite each other near the bottom.
+3. Push a wooden spoon through the holes to serve as a perch and feeding tray.
+4. Cut a slightly larger hole above the spoon scoop so seeds can spill out.
+5. Screw an eye hook into the plastic cap, fill with birdseed, and hang it outside."
+148,Egg Carton,Seed Starters Variation #93,Easy,9 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+149,Egg Carton,Seed Starters Variation #61,Easy,8 minutes,"1. Cut the lid off a cardboard egg carton.
+2. Fill each egg cup half-full with seed-starting potting mix.
+3. Place 1-2 seeds into each cup and cover with a little more soil.
+4. Gently water the cups and place them in a sunny window.
+5. Once the seedlings are large enough, you can cut the cups apart and plant them directly into the ground (the cardboard will biodegrade!)."
+150,Tin Can,Herb Garden Planters Variation #36,Easy,20 minutes,"1. Clean the tin can and ensure there are no sharp edges.
+2. Use a hammer and nail to punch 3-4 drainage holes in the bottom.
+3. Paint the outside of the can with acrylic paint and let it dry.
+4. Fill with potting soil and plant your favorite herbs (basil, mint, cilantro)."

@@ -160,13 +160,13 @@ elif st.session_state.view_mode == 'kb_manager':
     st.markdown("Populate your local Vector Database with UPcycling ideas and project instructions!")
     
     st.subheader("1. Ingest Synthetic Dataset")
-    if st.button("Ingest `upcycle_knowledge.csv`"):
-        if os.path.exists("upcycle_knowledge.csv"):
-            with st.spinner("Ingesting 150 project ideas..."):
-                res = rag_manager.ingest_csv("upcycle_knowledge.csv")
+    if st.button("Ingest `upcycle_knowledge_llm.csv`"):
+        if os.path.exists("upcycle_knowledge_llm.csv"):
+            with st.spinner("Ingesting perfectly aligned LLM RAG projects..."):
+                res = rag_manager.ingest_csv("upcycle_knowledge_llm.csv")
                 st.success(res)
         else:
-            st.error("upcycle_knowledge.csv not found. Run generate_kb_data.py first.")
+            st.error("upcycle_knowledge_llm.csv not found. Run generate_kb_llm.py first.")
             
     st.markdown("---")
     st.subheader("2. Sync Past History")
