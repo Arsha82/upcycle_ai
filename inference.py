@@ -16,6 +16,96 @@ class OllamaEngine(InferenceEngine):
         self.model_name = model_name
         self.client = ollama.Client(host='http://127.0.0.1:11434')
 
+    def run_vision(self, image_bytes):
+        """Interactive Step 1: Just run vision and return comma-separated objects."""
+        if not ollama:
+            raise ImportError("Ollama library not found.")
+        
+        import tempfile
+        import os
+        
+        with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as temp_img:
+            temp_img.write(image_bytes)
+            temp_img_path = temp_img.name
+
+        try:
+            # Prompt specifically asks for a COMMA SEPARATED list of items
+            vision_prompt = "Identify all distinct objects, loose items, and materials visible in this image. Return the result STRICTLY as a simple comma-separated list. Do not include sentences."
+            print(f"DEBUG: Running Interactive Vision Step with {self.model_name}...")
+            vision_res = self.client.generate(
+                model=self.model_name,
+                prompt=vision_prompt,
+                images=[temp_img_path]
+            )
+            return vision_res['response']
+        finally:
+            if os.path.exists(temp_img_path):
+                os.remove(temp_img_path)
+
+    def run_reasoning(self, selected_items, equipment, prompt, use_rag=False):
+        """Interactive Step 2: Run reasoning based on explicit user choices and equipment."""
+        if not ollama:
+            raise ImportError("Ollama library not found.")
+            
+        # Treat the selected items list as our new "description"
+        description = ", ".join(selected_items) if isinstance(selected_items, list) else selected_items
+        rag_context = ""
+        
+        if use_rag:
+            from rag_utils import get_rag_manager
+            print("DEBUG: Querying Vector DB for user-selected items...")
+            rag_manager = get_rag_manager()
+            
+            # Cache check
+            cached_text = rag_manager.find_exact_match(description, threshold=0.15)
+            if cached_text:
+                return f"⚡ **[CACHE HIT]** ⚡\n\nWe instantly recognized this exact combination!\n\n{cached_text}"
+
+            snippets = rag_manager.query(description, n_results=3)
+            if snippets:
+                rag_context = "\n--- RELEVANT KNOWLEDGE BASE SNIPPETS ---\n"
+                for idx, snip in enumerate(snippets):
+                    rag_context += f"Snippet {idx+1}:\n{snip}\n\n"
+                rag_context += "------------------------------------------\n"
+
+        reasoning_model = "llama3.1"
+        
+        equipment_text = ""
+        if equipment and equipment.strip():
+            equipment_text = f"The user explicitly stated they only have the following equipment available: {equipment.strip()}"
+        else:
+            equipment_text = "The user has not specified any equipment, so assume basic household tools."
+
+        full_text_prompt = f"""
+        CONTEXT:
+        The user wants to upcycle the following specific items: "{description}"
+        {equipment_text}
+        
+        {rag_context}
+        
+        YOUR TASK:
+        {prompt}
+        
+        IMPORTANT: 
+        1. Only suggest projects requiring the equipment listed, or very basic tools.
+        2. If there are RELEVANT KNOWLEDGE BASE SNIPPETS provided above, highly prioritize using ideas, instructions, and information from those snippets in your response!
+        """
+        
+        print(f"DEBUG: Running Interactive Reasoning Step with {reasoning_model}...")
+        text_res = self.client.chat(
+            model=reasoning_model,
+            messages=[{'role': 'user', 'content': full_text_prompt}]
+        )
+        
+        final_output = text_res['message']['content']
+        
+        if use_rag:
+            from rag_utils import get_rag_manager
+            rag_manager = get_rag_manager()
+            rag_manager.add_generated_idea(description, final_output)
+            
+        return final_output
+
     def generate_response(self, image_bytes, prompt, use_rag=False):
         if not ollama:
             raise ImportError("Ollama library not found. Please install it.")
