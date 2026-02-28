@@ -87,72 +87,172 @@ elif st.session_state.view_mode == 'new':
     # New Scan Mode
     st.markdown("Scan your waste and turn it into something useful!")
     
-    # Input Method Mode
-    input_method = st.radio("Choose Input Method", ["Camera", "Upload Image"], horizontal=True)
-
-    image_file = None
-    if input_method == "Camera":
-        image_file = st.camera_input("Take a photo")
-    else:
-        image_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
-
-    if image_file:
-        # Display Image
-        image = Image.open(image_file)
-        st.image(image, caption="Uploaded Image", width=400)
+    # Init workflow state if needed
+    if 'scan_step' not in st.session_state:
+        st.session_state.scan_step = 1 # 1: Upload, 2: Refine, 3: Result
+    if 'raw_vision_items' not in st.session_state:
+        st.session_state.raw_vision_items = []
+    if 'image_bytes' not in st.session_state:
+        st.session_state.image_bytes = None
+    if 'image_path' not in st.session_state:
+        st.session_state.image_path = None
         
-        # Action Button
-        if st.button("✨ Auto-Upcycle This!"):
-            with st.spinner(f"Thinking with {model_provider} (Chain Mode)..."):
-                try:
-                    # Get Engine
-                    engine = get_inference_engine(model_provider, model_name)
-                    
-                    # Run Inference
-                    # Convert to bytes for inference
-                    img_byte_arr = io.BytesIO()
-                    image.save(img_byte_arr, format=image.format if image.format else 'JPEG')
-                    img_bytes = img_byte_arr.getvalue()
-                    
-                    # Advanced Prompt Engineering
-                    # Extract the context from the knowledge bank first.
-                    # Since we don't have the object identified yet (vision runs in inference.py),
-                    # we will modify inference.py to handle the RAG lookup OR we can do a quick vision here.
-                    # Given the structure, let's pass an indicator to inference engine that we want RAG.
-                    
-                    base_prompt = """
-                    You are an expert DIY and Upcycling Assistant. A user has uploaded an image of a waste item.
-                    
-                    1. IDENTIFY the item and its primary material (e.g., Plastic Bottle, Cardboard Box, Glass Jar).
-                    2. BRAINSTORM 3 distinct, creative, and practical upcycling ideas for this item.
-                       - Idea 1: Simple/Quick (5-10 mins)
-                       - Idea 2: Moderate/Decorative (30-60 mins)
-                       - Idea 3: Advanced/Functional (Project)
-                    
-                    3. DETAILED INSTRUCTIONS for ONE of the best ideas above:
-                       - List materials and tools needed.
-                       - Step-by-step assembly instructions.
-                       - Safety tips.
+    # --- STEP 1: UPLOAD & VISION ---
+    if st.session_state.scan_step == 1:
+        input_method = st.radio("Choose Input Method", ["Camera", "Upload Image"], horizontal=True)
 
-                    Format your response with clear Markdown headings (##) and bullet points. Be enthusiastic and encouraging!
-                    """
-                    
-                    response = engine.generate_response(img_bytes, base_prompt, use_rag=True)
-                    
-                    st.success("Analysis Complete!")
-                    st.markdown(response)
-                    
-                    # Save to Disk and DB
-                    # Reset pointer for saving
-                    image_file.seek(0)
-                    image_path = save_image_to_disk(image_file)
-                    
-                    # Use a rough naive name or "Scanned Item"
-                    item_name = "Scanned Item" 
-                    save_recipe(item_name, response, image_path)
-                    
-                except Exception as e:
-                    st.error(f"An error occurred: {e}")
+        image_file = None
+        if input_method == "Camera":
+            image_file = st.camera_input("Take a photo")
+        else:
+            image_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
+
+        if image_file:
+            image = Image.open(image_file)
+            st.image(image, caption="Uploaded Image", width=400)
+            
+            if st.button("🔍 Analyze Image"):
+                with st.spinner(f"Identifying objects with {model_provider} vision..."):
+                    try:
+                        engine = get_inference_engine(model_provider, model_name)
+                        
+                        img_byte_arr = io.BytesIO()
+                        image.save(img_byte_arr, format=image.format if image.format else 'JPEG')
+                        img_bytes = img_byte_arr.getvalue()
+                        
+                        # Save the image early so we have the path for later DB insertion
+                        image_file.seek(0)
+                        image_path = save_image_to_disk(image_file)
+                        
+                        st.session_state.image_bytes = img_bytes
+                        st.session_state.image_path = image_path
+                        
+                        # If AirLLM, mock the vision step as it's text-only right now in this impl
+                        if model_provider == "AirLLM":
+                            # Hack fallback
+                            raw_csv_response = "unknown object"
+                        else:
+                            raw_csv_response = engine.run_vision(img_bytes)
+                        
+                        # Process the comma-separated string into a list
+                        items = [item.strip() for item in raw_csv_response.split(',') if item.strip()]
+                        
+                        st.session_state.raw_vision_items = items
+                        st.session_state.scan_step = 2
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Vision analysis failed: {e}")
+
+    # --- STEP 2: REFINE & SELECT ---
+    elif st.session_state.scan_step == 2:
+        st.info("Success! We analyzed the image. Tell us exactly what to focus on.")
+        
+        # Display image again for context
+        if st.session_state.image_path and os.path.exists(st.session_state.image_path):
+            st.image(Image.open(st.session_state.image_path), width=300)
+            
+        st.subheader("1. Select items to upcycle")
+        st.write("Uncheck background objects or things you don't want to use.")
+        
+        if not st.session_state.raw_vision_items:
+            st.warning("No specific objects identified. Please type what you see below.")
+            st.session_state.raw_vision_items = ["Unknown object"]
+            
+        selected_items = []
+        for i, item in enumerate(st.session_state.raw_vision_items):
+            # Default to checked
+            if st.checkbox(item, value=True, key=f"chk_{i}"):
+                selected_items.append(item)
+                
+        # Optional manual override
+        manual_item = st.text_input("Missed something? Type it here (optional):")
+        if manual_item:
+            selected_items.append(manual_item.strip())
+            
+        st.markdown("---")
+        st.subheader("2. What equipment do you have?")
+        equipment = st.text_input("Tools available (e.g., 'hot glue gun, scissors, paint')", placeholder="Leave blank for basic household items")
+        
+        st.markdown("---")
+        col1, col2 = st.columns([1,4])
+        with col1:
+            if st.button("⬅️ Start Over"):
+                st.session_state.scan_step = 1
+                st.rerun()
+        with col2:
+            if st.button("✨ Generate Project Ideas"):
+                if not selected_items:
+                    st.error("Please select at least one item to upcycle.")
+                else:
+                    st.session_state.selected_items = selected_items
+                    st.session_state.equipment = equipment
+                    st.session_state.scan_step = 3
+                    st.rerun()
+
+    # --- STEP 3: GENERATION (REASONING) ---
+    elif st.session_state.scan_step == 3:
+        with st.spinner(f"Brainstorming and checking Knowledge Base with {model_provider} text reasoning..."):
+            try:
+                engine = get_inference_engine(model_provider, model_name)
+                
+                base_prompt = """
+                You are an expert DIY and Upcycling Assistant. A user wants to upcycle the provided items.
+                
+                1. BRAINSTORM 3 distinct, creative, and practical upcycling ideas for these items.
+                   - Idea 1: Simple/Quick (5-10 mins)
+                   - Idea 2: Moderate/Decorative (30-60 mins)
+                   - Idea 3: Advanced/Functional (Project)
+                
+                2. DETAILED INSTRUCTIONS for ONE of the best ideas above:
+                   - List materials and tools needed.
+                   - Step-by-step assembly instructions.
+                   - Safety tips.
+
+                Format your response with clear Markdown headings (##) and bullet points. Be enthusiastic and encouraging!
+                """
+                
+                # Use the interactive reasoning flow
+                if hasattr(engine, 'run_reasoning'):
+                    response = engine.run_reasoning(
+                        selected_items=st.session_state.selected_items,
+                        equipment=st.session_state.equipment,
+                        prompt=base_prompt,
+                        use_rag=True
+                    )
+                else:
+                    # Fallback for AirLLM or other engines without split logic
+                    final_prompt_adj = f"The user wants to upcycle: {', '.join(st.session_state.selected_items)}. They have tools: {st.session_state.equipment.strip() if st.session_state.equipment else 'basic'}.\n\n" + base_prompt
+                    response = engine.generate_response(st.session_state.image_bytes, final_prompt_adj, use_rag=True)
+                
+                # Save to DB
+                item_name = ", ".join(st.session_state.selected_items)[:50] # Short title
+                save_recipe(item_name, response, st.session_state.image_path)
+                
+                st.session_state.final_response = response
+                st.session_state.scan_step = 4
+                st.rerun()
+                
+            except Exception as e:
+                st.error(f"Generation error: {e}")
+                if st.button("⬅️ Back"):
+                    st.session_state.scan_step = 2
+                    st.rerun()
+
+    # --- STEP 4: RESULT DISPLAY ---
+    elif st.session_state.scan_step == 4:
+        st.success("Analysis Complete!")
+        
+        # Display the result
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            if st.session_state.image_path and os.path.exists(st.session_state.image_path):
+                st.image(Image.open(st.session_state.image_path), caption="Original Image")
+        with col2:
+            st.markdown(st.session_state.final_response)
+            
+        if st.button("⬅️ New Scan"):
+            st.session_state.scan_step = 1
+            st.rerun()
 
 elif st.session_state.view_mode == 'kb_manager':
     # Knowledge Bank Manager UI
