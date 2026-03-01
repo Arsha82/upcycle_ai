@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+
+/* Skeleton Theme Configuration */
+@theme {
+	/* Colors: OKLCH space (Extracted from Skeleton default preset for premium look) */
+	--color-primary-50: oklch(0.98 0.01 250);
+	--color-primary-500: oklch(0.55 0.15 250);
+	--color-primary-950: oklch(0.15 0.05 250);
+
+	/* Surface (Backgrounds/Cards) */
+	--color-surface-50: oklch(0.99 0.005 260);
+	--color-surface-500: oklch(0.5 0.02 260);
+	--color-surface-950: oklch(0.12 0.01 260);
+
+	/* Secondary (Accents) */
+	--color-secondary-500: oklch(0.65 0.2 320);
+
+	/* Animations */
+	--animate-float: float 6s ease-in-out infinite;
+
+	@keyframes float {
+		0% {
+			transform: translateY(0px);
+		}
+
+		50% {
+			transform: translateY(-10px);
+		}
+
+		100% {
+			transform: translateY(0px);
+		}
+	}
+}
+
+/* Base Styles */
+@layer base {
+
+	html,
+	body {
+		@apply h-full w-full overflow-hidden bg-surface-50 dark:bg-surface-950 text-surface-950 dark:text-surface-50;
+		font-family: 'Inter', system-ui, sans-serif;
+	}
+}
+
+/* Glassmorphism Utilities (Tailwind v4 syntax) */
+@utility glass {
+	@apply bg-white/10 dark:bg-black/20 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl;
+}
+
+@utility glass-card {
+	@apply glass rounded-2xl p-6 transition-all hover:shadow-2xl hover:bg-white/15 dark:hover:bg-black/30;
+}

@@ -29,15 +29,23 @@ class OllamaEngine(InferenceEngine):
             temp_img_path = temp_img.name
 
         try:
-            # Prompt specifically asks for a COMMA SEPARATED list of items
-            vision_prompt = "Identify all distinct objects, loose items, and materials visible in this image. Return the result STRICTLY as a simple comma-separated list. Do not include sentences."
+            # Prompt specifically asks for a COMMA SEPARATED list of items.
+            # We avoid the word "Identify" as some vision models interpret that as "return bounding box coordinates".
+            vision_prompt = "Look at this image. What items, objects, or materials do you see? Reply with just a simple comma-separated list of words. No sentences, no coordinates, no brackets."
             print(f"DEBUG: Running Interactive Vision Step with {self.model_name}...")
             vision_res = self.client.generate(
                 model=self.model_name,
                 prompt=vision_prompt,
                 images=[temp_img_path]
             )
-            return vision_res['response']
+            raw_text = vision_res['response']
+            
+            # Very basic cleanup in case the model hallucinates brackets or 'ids='
+            import re
+            clean_text = re.sub(r'ids\s*=\s*\[.*?\]', '', raw_text)
+            clean_text = re.sub(r'[\[\]]', '', clean_text)
+            
+            return clean_text.strip()
         finally:
             if os.path.exists(temp_img_path):
                 os.remove(temp_img_path)
@@ -68,7 +76,7 @@ class OllamaEngine(InferenceEngine):
                     rag_context += f"Snippet {idx+1}:\n{snip}\n\n"
                 rag_context += "------------------------------------------\n"
 
-        reasoning_model = "llama3.1"
+        reasoning_model = "qwen2.5:1.5b"
         
         equipment_text = ""
         if equipment and equipment.strip():
@@ -78,17 +86,17 @@ class OllamaEngine(InferenceEngine):
 
         full_text_prompt = f"""
         CONTEXT:
-        The user wants to upcycle the following specific items: "{description}"
+        The user wants to upcycle: "{description}"
         {equipment_text}
         
         {rag_context}
         
-        YOUR TASK:
-        {prompt}
-        
-        IMPORTANT: 
-        1. Only suggest projects requiring the equipment listed, or very basic tools.
-        2. If there are RELEVANT KNOWLEDGE BASE SNIPPETS provided above, highly prioritize using ideas, instructions, and information from those snippets in your response!
+        YOUR STRICT TASK:
+        You are a formatter. Do NOT invent new projects. 
+        Read the RELEVANT KNOWLEDGE BASE SNIPPETS above. 
+        Pick the ONE best project from those snippets that fits the user's equipment.
+        Format that project nicely into a markdown step-by-step guide with tools, materials, and steps.
+        If the user lacks required tools for a snippet, adapt the instructions to use their available tools if possible.
         """
         
         print(f"DEBUG: Running Interactive Reasoning Step with {reasoning_model}...")
@@ -163,23 +171,21 @@ class OllamaEngine(InferenceEngine):
                     else:
                         print("DEBUG: Vector DB returned no results.")
 
-                # STEP 2: REASONING (Llama3)
-                # We use a capable text model for the logic. 
-                # We assume user has llama3 or llama3.1 from previous logs.
-                reasoning_model = "llama3.1" # Default to 3.1 as seen in logs
+                # STEP 2: REASONING (Qwen 2.5 1.5B)
+                # We use an ultra-fast small model to format the output.
+                reasoning_model = "qwen2.5:1.5b" 
                 
-                # Construct a new text-only prompt combining the system instructions and the vision description
                 full_text_prompt = f"""
                 CONTEXT:
-                The user has uploaded an image of a waste item.
-                A vision model has described it as: "{description}"
+                The user has an image containing: "{description}"
                 
                 {rag_context}
                 
-                YOUR TASK:
-                {prompt}
-                
-                IMPORTANT INSTRUCTION: If there are RELEVANT KNOWLEDGE BASE SNIPPETS provided above, highly prioritize using ideas, instructions, and information from those snippets in your response!
+                YOUR STRICT TASK:
+                You are a formatter. Do NOT invent new projects. 
+                Read the RELEVANT KNOWLEDGE BASE SNIPPETS above. 
+                Pick the ONE best project from those snippets.
+                Format that project nicely into a markdown step-by-step guide with tools, materials, and steps.
                 """
                 
                 print(f"DEBUG: Running Reasoning Step with {reasoning_model}...")
