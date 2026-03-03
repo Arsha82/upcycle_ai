@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
@@ -21,6 +22,16 @@ app.add_middleware(
 
 # Initialize the db on startup
 init_db()
+
+# Serve images statically for the frontend Explore page
+base_dir = os.path.dirname(os.path.abspath(__file__))
+uploads_dir = os.path.join(base_dir, "uploads")
+images_dir = os.path.join(base_dir, "images")
+
+if os.path.exists(uploads_dir):
+    app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
+if os.path.exists(images_dir):
+    app.mount("/images", StaticFiles(directory=images_dir), name="images")
 
 # --- Configurations ---
 MODEL_PROVIDER = "Ollama" # Hardcoded for now, can be dynamic
@@ -134,6 +145,25 @@ def get_history():
                 "created_at": r[4]
             })
         return {"status": "success", "history": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/explore")
+def get_explore():
+    """Returns saved projects from the SQLite DB for the Explore Feed"""
+    try:
+        recipes = get_all_recipes() # Currently using history, can add pagination/randomization here later
+        
+        result = []
+        for r in recipes:
+            result.append({
+                "id": r[0],
+                "item_name": r[1],
+                "recipe_text": r[2],
+                "image_path": r[3],
+                "created_at": r[4]
+            })
+        return {"status": "success", "explore_feed": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

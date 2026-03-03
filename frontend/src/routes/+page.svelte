@@ -16,7 +16,7 @@
     let errorMsg: string = $state("");
 
     // API Base
-    const API_BASE = "http://localhost:8000/api";
+    const API_BASE = "/api";
 
     function handleFile(e: Event) {
         const target = e.target as HTMLInputElement;
