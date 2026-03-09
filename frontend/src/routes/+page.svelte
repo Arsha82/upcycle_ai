@@ -113,7 +113,7 @@
     {#if errorMsg}
         <div
             transition:slide
-            class="bg-red-500/20 border border-red-500/50 text-red-200 p-4 rounded-xl backdrop-blur-md"
+            class="bg-error-500 text-white font-bold p-4 border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)]"
         >
             {errorMsg}
         </div>
@@ -127,10 +127,13 @@
             class="glass-card flex flex-col items-center justify-center p-12 text-center min-h-[50vh]"
         >
             <span class="text-6xl mb-6">♻️</span>
-            <h2 class="text-3xl font-bold mb-2">Scan Your Waste</h2>
-            <p
-                class="text-surface-950/60 dark:text-surface-50/60 mb-8 max-w-md"
-            >
+            <h2 class="text-4xl font-black uppercase tracking-tighter mb-4">
+                <span
+                    class="bg-primary-50 px-2 text-primary-950 border-[3px] border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)]"
+                    >Scan Your Waste</span
+                >
+            </h2>
+            <p class="text-surface-950/80 mb-8 max-w-md font-medium text-lg">
                 Upload a picture of items you want to throw away, and our vision
                 engine will identify them for upcycling.
             </p>
@@ -143,9 +146,9 @@
                     onchange={handleFile}
                 />
                 <div
-                    class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white rounded-full font-bold shadow-lg shadow-primary-500/30 transition-all group-hover:scale-105 flex items-center gap-3"
+                    class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-black uppercase text-lg border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)] transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_oklch(0.2_0.03_85)] flex items-center gap-3"
                 >
-                    <span class="text-xl">📸</span> Upload Image
+                    <span class="text-2xl">📸</span> Upload Image
                 </div>
             </label>
 
@@ -157,11 +160,11 @@
                     <img
                         src={_imagePreviewUrl}
                         alt="Preview"
-                        class="w-48 h-48 object-cover rounded-xl shadow-lg border-2 border-primary-500/30"
+                        class="w-48 h-48 object-cover border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)]"
                     />
                     <button
                         onclick={runVision}
-                        class="px-6 py-2 bg-secondary-500 hover:bg-secondary-600 text-white rounded-full font-bold transition-transform hover:-translate-y-1"
+                        class="px-6 py-3 bg-secondary-500 hover:bg-secondary-600 text-white font-black uppercase border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)] transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_oklch(0.2_0.03_85)]"
                     >
                         ✨ Analyze Image
                     </button>
@@ -184,7 +187,7 @@
                     <img
                         src={_imagePreviewUrl}
                         alt="Preview"
-                        class="w-full aspect-square object-cover rounded-xl"
+                        class="w-full aspect-square object-cover border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)]"
                     />
                 {/if}
             </div>
@@ -192,9 +195,11 @@
             <!-- Refinement Form -->
             <div class="glass-card flex flex-col gap-8">
                 <div>
-                    <h2 class="text-2xl font-bold mb-2 flex items-center gap-3">
+                    <h2
+                        class="text-2xl font-black uppercase mb-2 flex items-center gap-3"
+                    >
                         <span
-                            class="bg-primary-500 rounded-full w-8 h-8 flex items-center justify-center text-sm text-white"
+                            class="bg-primary-500 border-2 border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)] w-10 h-10 flex items-center justify-center text-lg text-white"
                             >1</span
                         >
                         Select Items
@@ -221,13 +226,13 @@
                         <div class="flex flex-col gap-3" transition:slide>
                             {#each visionItems as item}
                                 <label
-                                    class="flex items-center gap-4 p-4 rounded-xl bg-surface-500/5 hover:bg-surface-500/10 border border-surface-500/10 cursor-pointer transition-colors"
+                                    class="flex items-center gap-4 p-4 bg-surface-50 border-[3px] border-surface-950 cursor-pointer shadow-[4px_4px_0px_oklch(0.2_0.03_85)] transition-transform hover:-translate-y-1 hover:-translate-x-1"
                                 >
                                     <!-- Custom minimalist checkbox logic -->
                                     <input
                                         type="checkbox"
                                         bind:checked={item.selected}
-                                        class="w-6 h-6 rounded-md accent-primary-500"
+                                        class="w-6 h-6 border-2 border-primary-950 rounded-none accent-primary-500"
                                     />
                                     <span class="text-lg font-medium capitalize"
                                         >{item.name}</span
@@ -241,9 +246,11 @@
                 <hr class="border-surface-500/20" />
 
                 <div>
-                    <h2 class="text-2xl font-bold mb-2 flex items-center gap-3">
+                    <h2
+                        class="text-2xl font-black uppercase mb-2 flex items-center gap-3"
+                    >
                         <span
-                            class="bg-secondary-500 rounded-full w-8 h-8 flex items-center justify-center text-sm text-white"
+                            class="bg-secondary-500 border-2 border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)] w-10 h-10 flex items-center justify-center text-lg text-white"
                             >2</span
                         >
                         Available Tools
@@ -257,7 +264,7 @@
                         type="text"
                         bind:value={toolsEquipment}
                         placeholder="e.g. Hot glue gun, exacto knife, paint..."
-                        class="w-full px-5 py-4 rounded-xl bg-surface-500/10 border border-surface-500/20 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-all font-medium"
+                        class="w-full px-5 py-4 bg-surface-50 border-[3px] border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)] focus:shadow-[6px_6px_0px_oklch(0.2_0.03_85)] focus:outline-none transition-all font-medium rounded-none"
                         disabled={visionItems.length === 0}
                     />
                 </div>
@@ -265,14 +272,14 @@
                 <div class="flex justify-end gap-4 mt-4">
                     <button
                         onclick={() => (currentStep = "upload")}
-                        class="px-6 py-3 rounded-full opacity-70 hover:opacity-100 transition-opacity font-medium"
+                        class="px-6 py-3 border-[3px] border-surface-950 bg-surface-50 shadow-[4px_4px_0px_oklch(0.2_0.03_85)] hover:shadow-[6px_6px_0px_oklch(0.2_0.03_85)] transition-all font-black uppercase"
                     >
                         Back
                     </button>
                     <button
                         onclick={runGeneration}
                         disabled={visionItems.length === 0}
-                        class="px-8 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1 disabled:opacity-50 disabled:hover:translate-y-0"
+                        class="px-8 py-3 bg-primary-500 text-white font-black uppercase border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)] transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_oklch(0.2_0.03_85)] disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:translate-x-0 disabled:hover:shadow-[6px_6px_0px_oklch(0.2_0.03_85)]"
                     >
                         ✨ Brainstorm Projects
                     </button>
@@ -298,7 +305,7 @@
             </div>
 
             <h2
-                class="text-3xl font-bold mb-4 bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent animate-pulse"
+                class="text-4xl font-black uppercase tracking-tighter mb-4 text-surface-950 bg-primary-50 px-4 py-2 border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)] animate-pulse"
             >
                 Consulting Knowledge Base...
             </h2>
@@ -316,19 +323,21 @@
             class="glass-card flex flex-col gap-8 print:shadow-none print:border-none print:bg-transparent"
         >
             <div class="flex justify-between items-start print:hidden">
-                <h2 class="text-3xl font-bold tracking-tight">
+                <h2
+                    class="text-4xl font-black uppercase tracking-tighter bg-primary-50 px-3 py-1 border-[3px] border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)]"
+                >
                     Your Upcycle Project
                 </h2>
                 <div class="flex gap-3">
                     <button
                         onclick={() => window.print()}
-                        class="px-4 py-2 bg-surface-500/10 hover:bg-surface-500/20 rounded-lg flex items-center gap-2 font-medium transition-colors"
+                        class="px-4 py-2 bg-surface-50 border-[3px] border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)] font-black uppercase transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0px_oklch(0.2_0.03_85)] flex items-center gap-2"
                     >
                         📄 Export PDF
                     </button>
                     <button
                         onclick={reset}
-                        class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg flex items-center gap-2 font-bold transition-colors shadow-md shadow-primary-500/20"
+                        class="px-4 py-2 bg-secondary-500 text-white border-[3px] border-surface-950 shadow-[4px_4px_0px_oklch(0.2_0.03_85)] font-black uppercase transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0px_oklch(0.2_0.03_85)] flex items-center gap-2"
                     >
                         ♻️ New Scan
                     </button>
@@ -337,7 +346,7 @@
 
             <!-- Render Markdown -->
             <article
-                class="prose prose-invert max-w-none prose-headings:text-primary-500 prose-a:text-secondary-500 prose-strong:text-opacity-90 leading-relaxed bg-surface-500/5 p-8 rounded-2xl border border-surface-500/10 print:bg-white print:text-black print:p-0 print:prose-invert:false"
+                class="prose prose-base sm:prose-lg max-w-none prose-headings:text-primary-500 prose-a:text-secondary-500 bg-white p-8 border-[3px] border-surface-950 shadow-[8px_8px_0px_oklch(0.2_0.03_85)] print:bg-white print:text-black print:p-0 print:border-none print:shadow-none"
             >
                 {@html marked(generatedProject)}
             </article>

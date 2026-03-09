@@ -25,10 +25,10 @@
         loading = true;
         errorMsg = "";
         try {
-            const res = await fetch(`${API_BASE}/explore`);
-            if (!res.ok) throw new Error("Failed to fetch explore feed");
+            const res = await fetch(`${API_BASE}/history`);
+            if (!res.ok) throw new Error("Failed to fetch history");
             const data = await res.json();
-            projects = data.explore_feed || [];
+            projects = data.history || [];
         } catch (err: any) {
             errorMsg = err.message || "Error loading projects";
         } finally {
@@ -78,23 +78,19 @@
 </script>
 
 <svelte:head>
-    <title>Explore - Upcycle AI</title>
+    <title>History - Upcycle AI</title>
 </svelte:head>
 
-<!-- We need a larger container for the masonry grid if possible, 
-     overriding the default max-w-4xl from layout for this specific page if we wished to, 
-     but within max-w-4xl it looks like a nice centered feed too. -->
 <div class="w-full">
     <!-- Header Area -->
     <div class="mb-10 text-center" in:fade={{ duration: 400 }}>
         <h1
             class="text-4xl font-black uppercase tracking-tighter text-surface-950 px-4 py-2 bg-primary-50 inline-block border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)] mb-4"
         >
-            Explore Inspire
+            Your History
         </h1>
         <p class="text-surface-950/80 font-medium text-lg max-w-lg mx-auto">
-            Discover amazing upcycled creations from the community and get
-            inspired for your next project.
+            Review the upcycling projects you've generated in the past.
         </p>
     </div>
 
@@ -126,12 +122,11 @@
     {:else if projects.length === 0}
         <div class="text-center py-20 opacity-60" in:fade>
             <div class="text-6xl mb-4">🏜️</div>
-            <h3 class="text-xl font-bold">No projects yet...</h3>
-            <p>Be the first to scan an item and create a project!</p>
+            <h3 class="text-xl font-bold">No history yet...</h3>
+            <p>Scan an item on the Analyzer page to get started!</p>
         </div>
     {:else}
         <!-- Masonry Grid Layout -->
-        <!-- We use CSS columns for native CSS masonry. -->
         <div
             class="columns-1 sm:columns-2 gap-6 space-y-6"
             in:fade={{ duration: 400, delay: 100 }}

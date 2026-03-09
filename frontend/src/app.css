@@ -3,18 +3,19 @@
 
 /* Skeleton Theme Configuration */
 @theme {
-	/* Colors: OKLCH space (Extracted from Skeleton default preset for premium look) */
-	--color-primary-50: oklch(0.98 0.01 250);
-	--color-primary-500: oklch(0.55 0.15 250);
-	--color-primary-950: oklch(0.15 0.05 250);
+	/* Colors: Earthy Neo-Brutalism OKLCH */
+	/* Primary: Forest Green */
+	--color-primary-50: oklch(0.97 0.02 150);
+	--color-primary-500: oklch(0.45 0.1 145);
+	--color-primary-950: oklch(0.2 0.05 145);
 
-	/* Surface (Backgrounds/Cards) */
-	--color-surface-50: oklch(0.99 0.005 260);
-	--color-surface-500: oklch(0.5 0.02 260);
-	--color-surface-950: oklch(0.12 0.01 260);
+	/* Surface (Backgrounds/Cards): Sand / Parchment */
+	--color-surface-50: oklch(0.97 0.02 85);
+	--color-surface-500: oklch(0.6 0.05 85);
+	--color-surface-950: oklch(0.2 0.03 85);
 
-	/* Secondary (Accents) */
-	--color-secondary-500: oklch(0.65 0.2 320);
+	/* Secondary (Accents): Terracotta / Clay */
+	--color-secondary-500: oklch(0.6 0.15 35);
 
 	/* Animations */
 	--animate-float: float 6s ease-in-out infinite;
@@ -39,16 +40,21 @@
 
 	html,
 	body {
-		@apply h-full w-full overflow-hidden bg-surface-50 dark:bg-surface-950 text-surface-950 dark:text-surface-50;
+		@apply h-full w-full overflow-hidden bg-surface-50 text-surface-950;
+		/* Apply a subtle dot pattern background instead of solid color for texture */
+		background-image: radial-gradient(var(--color-surface-500) 1px, transparent 1px);
+		background-size: 20px 20px;
+		background-position: 0 0;
 		font-family: 'Inter', system-ui, sans-serif;
 	}
 }
 
-/* Glassmorphism Utilities (Tailwind v4 syntax) */
+/* Neo-Brutalism Utilities (Tailwind v4 syntax) */
 @utility glass {
-	@apply bg-white/10 dark:bg-black/20 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl;
+	/* Re-purposing the old glass name to brutalism block to avoid massive HTML rewrites. */
+	@apply bg-surface-50 border-[3px] border-surface-950 shadow-[6px_6px_0px_oklch(0.2_0.03_85)] dark:shadow-[6px_6px_0px_oklch(0.97_0.02_85)];
 }
 
 @utility glass-card {
-	@apply glass rounded-2xl p-6 transition-all hover:shadow-2xl hover:bg-white/15 dark:hover:bg-black/30;
+	@apply glass rounded-none p-6 transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_oklch(0.2_0.03_85)] dark:hover:shadow-[10px_10px_0px_oklch(0.97_0.02_85)];
 }

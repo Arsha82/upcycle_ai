@@ -139,9 +139,9 @@ def get_history():
         for r in recipes:
             result.append({
                 "id": r[0],
-                "item_name": r[1],
-                "recipe_text": r[2],
-                "image_path": r[3],
+                "image_path": r[1],
+                "item_name": r[2],
+                "recipe_text": r[3],
                 "created_at": r[4]
             })
         return {"status": "success", "history": result}
@@ -158,9 +158,9 @@ def get_explore():
         for r in recipes:
             result.append({
                 "id": r[0],
-                "item_name": r[1],
-                "recipe_text": r[2],
-                "image_path": r[3],
+                "image_path": r[1],
+                "item_name": r[2],
+                "recipe_text": r[3],
                 "created_at": r[4]
             })
         return {"status": "success", "explore_feed": result}

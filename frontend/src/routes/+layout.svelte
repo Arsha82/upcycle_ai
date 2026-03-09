@@ -7,19 +7,7 @@
 	class="h-screen w-screen overflow-x-hidden overflow-y-auto relative antialiased"
 	data-theme="preset"
 >
-	<!-- Background Abstract Elements (Glassmorphism foundation) -->
-	<div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-		<!-- Glowing Orbs -->
-		<div
-			class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary-500/20 blur-[120px] animate-float"
-		></div>
-		<div
-			class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-secondary-500/20 blur-[120px] animate-float"
-			style="animation-delay: -3s;"
-		></div>
-
-		<!-- Optional Particles Layer can go here later -->
-	</div>
+	<!-- Removed glowing orbs for Neo-Brutalism design -->
 
 	<!-- Main Content -->
 	<main
@@ -27,12 +15,12 @@
 	>
 		<!-- Header -->
 		<header
-			class="w-full max-w-4xl flex justify-between items-center mb-8 glass px-6 py-4 rounded-full"
+			class="w-full max-w-4xl flex justify-between items-center mb-8 glass px-6 py-4 rounded-none"
 		>
 			<div class="flex items-center gap-3">
 				<span class="text-3xl">🌱</span>
 				<h1
-					class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+					class="text-2xl font-black uppercase tracking-tighter text-surface-950 px-2 bg-primary-50"
 				>
 					Upcycle AI
 				</h1>
