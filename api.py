@@ -1,172 +1,235 @@
-from fastapi import FastAPI, File, UploadFile, Form, HTTPException
-from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 import os
 import io
-import datetime
-from database import init_db, save_recipe, get_history as get_all_recipes
+import traceback
+from PIL import Image
+import shutil
+
+from starlette.concurrency import run_in_threadpool
+from database import init_db, get_history, save_recipe
 from inference import get_inference_engine
-from typing import List, Optional
+from utils import save_image_to_disk
+from rag_utils import get_rag_manager
 
-app = FastAPI(title="Upcycle AI API")
+app = FastAPI(title="Upcycle API React Backend")
 
-# Enable CORS so the Svelte frontend can communicate with this API
+# Determine the absolute path to the frontend dist folder
+# Works regardless of where you launch the server from
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+_FRONTEND_DIST = os.path.join(_BASE_DIR, "frontend", "dist")
+
+# Enable CORS for the local React dev server
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For dev, allow all. Restrict in prod
+    allow_origins=["*"], # In dev, allow all
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Initialize the db on startup
-init_db()
+@app.on_event("startup")
+def startup_event():
+    init_db()
 
-# Serve images statically for the frontend Explore page
-base_dir = os.path.dirname(os.path.abspath(__file__))
-uploads_dir = os.path.join(base_dir, "uploads")
-images_dir = os.path.join(base_dir, "images")
-
-if os.path.exists(uploads_dir):
-    app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
-if os.path.exists(images_dir):
-    app.mount("/images", StaticFiles(directory=images_dir), name="images")
-
-# --- Configurations ---
-MODEL_PROVIDER = "Ollama" # Hardcoded for now, can be dynamic
-MODEL_NAME = "moondream:latest" # Default vision model
-
-class GenerationRequest(BaseModel):
-    selected_items: List[str]
-    equipment: str
-    image_path: Optional[str] = None
+@app.get("/api/status")
+def api_status():
+    """Health check — confirm the backend is alive."""
+    return {"status": "Upcycle API is running smoothly."}
 
 @app.get("/")
 def read_root():
-    return {"status": "ok", "message": "Upcycle AI API is running."}
+    """Serve the React SPA entry point."""
+    index = os.path.join(_FRONTEND_DIST, "index.html")
+    if os.path.isfile(index):
+        return FileResponse(index)
+    return {"status": "Upcycle API is running smoothly. (Frontend not built yet)"}
 
-@app.post("/api/vision")
-async def extract_items_from_image(file: UploadFile = File(...)):
-    """
-    Accepts an image, runs Moondream vision inference, and returns a list of items.
-    """
+@app.get("/api/history")
+def read_history():
+    """Fetch all Database History items formatted for React Home page."""
+    rows = get_history()
+    results = []
+    import string
+    for row in rows:
+        # row: (id, image_path, item_name, api_response, timestamp)
+        image_path = row[1]
+        image_url = f"http://localhost:8000/api/media?path={image_path}" if image_path else None
+        
+        # We try to extract a brief summary from the markdown response
+        response_text = row[3] or ""
+        lines = [line.strip() for line in response_text.split('\n') if line.strip() and not line.startswith('#')]
+        desc = lines[0] if lines else "AI-generated upcycling project instructions."
+        if len(desc) > 150:
+            desc = desc[:147] + "..."
+
+        results.append({
+            "id": row[0],
+            "title": row[2] or "Unknown Item",
+            "desc": desc,
+            "bgImage": image_url,
+            "details": f"Scan Date: {row[4]}\nAI Model: Local Device Pipeline\nStatus: Processed",
+            "raw_response": response_text
+        })
+    return results
+
+@app.get("/api/history/{item_id}")
+def read_history_item(item_id: int):
+    """Fetch a single exact history item by ID for the ItemDetail layout."""
+    rows = get_history()
+    for row in rows:
+        if row[0] == item_id:
+            image_path = row[1]
+            image_url = f"http://localhost:8000/api/media?path={image_path}" if image_path else None
+            return {
+                "id": row[0],
+                "title": row[2],
+                "image_url": image_url,
+                "response": row[3],
+                "timestamp": row[4]
+            }
+    raise HTTPException(status_code=404, detail="Item not found")
+
+@app.get("/api/media")
+def serve_media(path: str):
+    """Serve local uploaded images securely."""
+    if not path or not os.path.exists(path):
+        raise HTTPException(status_code=404, detail="Media file not found")
+    return FileResponse(path)
+
+class ScanRequest(BaseModel):
+    items: list[str]
+    equipment: str
+
+# Real Inference Endpoints
+@app.post("/api/scan")
+async def scan_image(file: UploadFile = File(...)):
+    engine = get_inference_engine("Ollama", "moondream")
+    raw_bytes = await file.read()
     try:
-        engine = get_inference_engine(MODEL_PROVIDER, MODEL_NAME)
-        image_bytes = await file.read()
+        # CRITICAL FIX: The frontend might send PNG/WebP.
+        # Saving raw bytes directly to a .jpg temp file causes Ollama's vision encoder
+        # to catastrophically fail and hallucinate <unk> gibberish.
+        # We must explicitly convert it to a clean RGB JPEG stream first.
+        image = Image.open(io.BytesIO(raw_bytes))
+        if image.mode != "RGB":
+            image = image.convert("RGB")
         
-        # Save image temporarily for inference if needed, or pass bytes
-        # Save permanently to disk if we want to show it in the results later
-        from app import save_image_to_disk # Reuse existing logic or replicate it
-        # Actually, let's replicate the simple saving to avoid circular imports.
+        img_byte_arr = io.BytesIO()
+        image.save(img_byte_arr, format='JPEG')
+        clean_jpeg_bytes = img_byte_arr.getvalue()
         
-        upload_dir = "uploads"
-        if not os.path.exists(upload_dir):
-            os.makedirs(upload_dir)
-            
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        ext = file.filename.split('.')[-1] if '.' in file.filename else 'jpg'
-        saved_path = os.path.join(upload_dir, f"img_{timestamp}.{ext}")
-        
-        with open(saved_path, "wb") as f:
-            f.write(image_bytes)
-
-        # Run Vision
-        raw_csv_response = engine.run_vision(image_bytes)
-        
-        # Parse into list
-        items = [item.strip() for item in raw_csv_response.split(',') if item.strip()]
-        
-        return {
-            "status": "success",
-            "items": items,
-            "image_path": saved_path
-        }
+        # Offload the massively blocking CPU/GPU vision model iteration away from the 
+        # Uvicorn main async event loop. Otherwise /api/history requests will freeze endlessly!
+        items_str = await run_in_threadpool(engine.run_vision, clean_jpeg_bytes)
+        # Parse the comma-separated or newline-separated items
+        items_list = [i.strip() for i in items_str.replace('\n', ',').split(',') if i.strip()]
+        return {"items": items_list[:6]}
     except Exception as e:
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/generate")
-async def generate_project(req: GenerationRequest):
-    """
-    Accepts an array of items and equipment, runs Qwen Reasoning RAG, and returns project text.
-    """
+async def generate_project(req: ScanRequest):
+    engine = get_inference_engine("Ollama", "moondream")
     try:
-        engine = get_inference_engine(MODEL_PROVIDER, MODEL_NAME) # Provider handles model routing internally
-        
-        base_prompt = """
-        You are an expert DIY and Upcycling Assistant. A user wants to upcycle the provided items.
-        
-        1. BRAINSTORM 3 distinct, creative, and practical upcycling ideas for these items.
-           - Idea 1: Simple/Quick (5-10 mins)
-           - Idea 2: Moderate/Decorative (30-60 mins)
-           - Idea 3: Advanced/Functional (Project)
-        
-        2. DETAILED INSTRUCTIONS for ONE of the best ideas above:
-           - List materials and tools needed.
-           - Step-by-step assembly instructions.
-           - Safety tips.
-
-        Format your response with clear Markdown headings (##) and bullet points. Be enthusiastic and encouraging!
-        """
-        
-        # Note: reasoning_model is internally hardcoded to qwen2.5:1.5b in inference.py
-        response = engine.run_reasoning(
-            selected_items=req.selected_items,
-            equipment=req.equipment,
-            prompt=base_prompt,
-            use_rag=True
-        )
-        
-        # Save to DB
-        item_name = ", ".join(req.selected_items)[:50]
-        if req.image_path and os.path.exists(req.image_path):
-            save_recipe(item_name, response, req.image_path)
-            
-        return {
-            "status": "success",
-            "project_markdown": response
-        }
+        generator = engine.run_reasoning(req.items, req.equipment, "", use_rag=False)
+        return StreamingResponse(generator, media_type="text/plain")
     except Exception as e:
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/history")
-def get_history():
-    """Returns saved projects from the SQLite DB"""
+async def get_history_data():
     try:
-        recipes = get_all_recipes()
-        # Convert tuples to dict for json serialization
-        result = []
-        for r in recipes:
-            result.append({
-                "id": r[0],
-                "image_path": r[1],
-                "item_name": r[2],
-                "recipe_text": r[3],
-                "created_at": r[4]
+        from database import get_history
+        rows = get_history()
+        history = []
+        for row in rows:
+            img_url = f"http://localhost:8000/api/media/{os.path.basename(row[1])}" if row[1] else ""
+            history.append({
+                "id": row[0],
+                "bgImage": img_url,
+                "title": row[2],
+                "details": row[3],
+                "timestamp": row[4]
             })
-        return {"status": "success", "history": result}
+        return history
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Knowledge Bank Endpoints
+@app.post("/api/kb/ingest-csv")
+async def ingest_csv():
+    try:
+        if not os.path.exists("upcycle_knowledge_llm.csv"):
+            raise HTTPException(status_code=404, detail="upcycle_knowledge_llm.csv not found")
+        rm = get_rag_manager()
+        res = rm.ingest_csv("upcycle_knowledge_llm.csv")
+        return {"status": "success", "message": res}
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/kb/sync-history")
+async def sync_history():
+    try:
+        if not os.path.exists("upcycle.db"):
+            raise HTTPException(status_code=404, detail="upcycle.db not found")
+        rm = get_rag_manager()
+        res = rm.ingest_sqlite_history("upcycle.db")
+        return {"status": "success", "message": res}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/explore")
-def get_explore():
-    """Returns saved projects from the SQLite DB for the Explore Feed"""
+@app.post("/api/kb/upload")
+async def upload_document(files: list[UploadFile] = File(...)):
     try:
-        recipes = get_all_recipes() # Currently using history, can add pagination/randomization here later
-        
-        result = []
-        for r in recipes:
-            result.append({
-                "id": r[0],
-                "image_path": r[1],
-                "item_name": r[2],
-                "recipe_text": r[3],
-                "created_at": r[4]
-            })
-        return {"status": "success", "explore_feed": result}
+        rm = get_rag_manager()
+        results = []
+        for file_obj in files:
+            bytes_data = await file_obj.read()
+            is_pdf = file_obj.filename.lower().endswith('.pdf')
+            res = rm.ingest_document(file_obj.filename, bytes_data, is_pdf)
+            results.append(res)
+        return {"status": "success", "messages": results}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@app.get("/api/kb/stats")
+async def kb_stats():
+    try:
+        rm = get_rag_manager()
+        count = rm.collection.count()
+        return {"count": count}
+    except Exception:
+        return {"count": 0}
+
+# ─── Serve the built React frontend ────────────────────────────────────────────
+# Smart catch-all: serve real files directly (fonts, assets, SVGs, etc.)
+# Only fall back to index.html for paths that don't exist as files (React routes)
+@app.get("/{full_path:path}", include_in_schema=False)
+async def serve_spa(full_path: str):
+    # Check if the requested path is an actual file in dist/
+    # Normalise separators so Windows handles URL forward slashes correctly
+    safe_path = full_path.replace("/", os.sep)
+    candidate = os.path.join(_FRONTEND_DIST, safe_path)
+    print(f"DEBUG SPA: full_path={full_path!r}  candidate={candidate!r}  exists={os.path.isfile(candidate)}")
+    if os.path.isfile(candidate):
+        return FileResponse(candidate)
+    # Fall back to index.html for React Router client-side routes
+    # No-cache so browsers always refetch the latest index.html
+    index = os.path.join(_FRONTEND_DIST, "index.html")
+    if os.path.isfile(index):
+        return FileResponse(
+            index,
+            headers={
+                "Cache-Control": "no-store, no-cache, must-revalidate",
+                "Pragma": "no-cache",
+            },
+        )
+    return {"error": "Frontend not built. Run: cd frontend && npm run build"}
+

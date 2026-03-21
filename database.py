@@ -23,6 +23,22 @@ def save_recipe(item_name, api_response, image_path=None):
     c = conn.cursor()
     c.execute('INSERT INTO recipes (item_name, api_response, image_path) VALUES (?, ?, ?)', 
               (item_name, api_response, image_path))
+    inserted_id = c.lastrowid
+    conn.commit()
+    conn.close()
+    return inserted_id
+
+def delete_recipe(item_id):
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute('DELETE FROM recipes WHERE id = ?', (item_id,))
+    conn.commit()
+    conn.close()
+
+def rename_recipe(item_id, new_name):
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute('UPDATE recipes SET item_name = ? WHERE id = ?', (new_name, item_id))
     conn.commit()
     conn.close()
 
