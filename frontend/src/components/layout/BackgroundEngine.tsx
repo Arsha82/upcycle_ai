@@ -8,14 +8,19 @@ export const BackgroundEngine: React.FC = () => {
   const bgMode = useBgModeStore((state: any) => state.bgMode);
   const [vantaEffect, setVantaEffect] = useState<any>(null);
   const vantaRef = useRef<HTMLDivElement>(null);
+  const effectRef = useRef<any>(null);
 
   // Mount / destroy Vanta only when in 'vanta' mode
   useEffect(() => {
     if (bgMode !== 'vanta') {
-      if (vantaEffect) { vantaEffect.destroy(); setVantaEffect(null); }
+      if (effectRef.current) { 
+        effectRef.current.destroy(); 
+        effectRef.current = null;
+        setVantaEffect(null); 
+      }
       return;
     }
-    if (!vantaEffect && vantaRef.current && (window as any).VANTA) {
+    if (!effectRef.current && vantaRef.current && (window as any).VANTA) {
       const effect = (window as any).VANTA.BIRDS({
         el: vantaRef.current,
         mouseControls: true,
@@ -36,9 +41,14 @@ export const BackgroundEngine: React.FC = () => {
         quantity: 4,
       });
       setVantaEffect(effect);
+      effectRef.current = effect;
     }
     return () => {
-      if (vantaEffect) { vantaEffect.destroy(); setVantaEffect(null); }
+      if (effectRef.current) { 
+        effectRef.current.destroy(); 
+        effectRef.current = null;
+        setVantaEffect(null); 
+      }
     };
   }, [bgMode]);
 
