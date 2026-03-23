@@ -63,7 +63,7 @@ class OllamaEngine(InferenceEngine):
             return clean_text.strip()
             
         except Exception as e:
-            return f"Error: {str(e)}"
+            raise ConnectionError(f"Failed to connect to Ollama. Error: {str(e)}")
 
     def run_reasoning(self, selected_items, equipment, prompt, use_rag=False):
         """Interactive Step 2: Run reasoning based on explicit user choices and equipment."""
