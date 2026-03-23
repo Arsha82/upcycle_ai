@@ -4,36 +4,51 @@ echo "  Upcycle AI - Auto Setup & Launch (Portable)"
 echo "=================================================="
 
 echo ""
-echo "[1/4] Checking Ollama Installation..."
+echo "[1/5] Checking Dependencies..."
+
+# Check for Python
+if ! command -v python3 &> /dev/null; then
+    echo "[ERROR] Python 3 is missing! Please install Python 3.10 or higher."
+    exit 1
+fi
+echo "✅ Python is available."
+
+# Check for Ollama
 if ! command -v ollama &> /dev/null; then
     echo "Ollama is missing! Attempting to install..."
     curl -fsSL https://ollama.com/install.sh | sh
     if [ $? -ne 0 ]; then
-        echo "Installation failed. Please manually install from https://ollama.com/download"
+        echo "[ERROR] Installation failed. Please manually install from https://ollama.com/download"
         exit 1
     fi
     echo "✅ Ollama installed successfully!"
 fi
+echo "✅ Ollama is available."
 
 echo ""
-echo "[2/4] Starting Ollama Server..."
+echo "[2/5] Starting Ollama Server..."
 # Start ollama serve in the background, suppressing output
 ollama serve >/dev/null 2>&1 &
-OLLAMA_PID=$!
-sleep 3
+sleep 5
 
-echo "Pulling the required AI vision model (moondream)..."
+echo ""
+echo "[3/5] Syncing AI Models..."
+echo "Ensuring the vision model (moondream) is downloaded..."
 ollama pull moondream
 
 echo ""
-echo "[3/4] Checking Python Environment..."
+echo "[4/5] Preparing Python Environment..."
 if [ ! -d ".venv" ]; then
-    echo "Python environment not found. Creating a fresh virtual environment..."
+    echo "Virtual environment not found. Creating a fresh one..."
     python3 -m venv .venv
     echo "Installing required packages (this may take a few minutes)..."
     source .venv/bin/activate
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] Package installation failed."
+        exit 1
+    fi
     deactivate
     echo "✅ Dependencies installed successfully!"
 else
@@ -41,15 +56,13 @@ else
 fi
 
 echo ""
-echo "[4/4] Starting FastAPI Backend..."
-echo "(The backend serves the pre-built React frontend entirely locally)"
-source .venv/Scripts/activate 2>/dev/null || source .venv/bin/activate 2>/dev/null
+echo "[5/5] Starting FastAPI Backend..."
+source .venv/bin/activate
 uvicorn api:app --port 8000 &
 BACKEND_PID=$!
 
 echo ""
 echo "Opening Application..."
-# Giving the server a little more time to boot up to prevent browser connection errors
 sleep 6
 if command -v xdg-open > /dev/null; then
   xdg-open http://localhost:8000/

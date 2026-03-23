@@ -5,54 +5,83 @@ echo   Upcycle AI - Auto Setup ^& Launch (Portable)
 echo ==================================================
 
 echo.
-echo [1/4] Checking Ollama Installation...
+echo [1/5] Checking Dependencies...
+
+:: Check for Python
+where python >nul 2>nul
+if %errorlevel% neq 0 (
+    echo [ERROR] Python is missing! Please install Python 3.10 or higher.
+    echo Opening download page...
+    start https://www.python.org/downloads/
+    pause
+    exit /b 1
+)
+echo ✅ Python is available.
+
+:: Check for Ollama
 where ollama >nul 2>nul
 if %errorlevel% neq 0 (
-    echo Ollama is missing! Attempting to install via Windows Package Manager (winget)...
-    winget install Ollama.Ollama -e --accept-package-agreements --accept-source-agreements
+    echo Ollama is missing! Checking for winget...
+    where winget >nul 2>nul
     if %errorlevel% neq 0 (
-        echo Winget installation failed. 
-        echo Please download and install Ollama manually from: https://ollama.com/download
+        echo [ERROR] Both Ollama and winget are missing.
+        echo Please install Ollama manually from: https://ollama.com/download
         start https://ollama.com/download
         pause
         exit /b 1
     )
-    echo ✅ Ollama installed successfully! Please restart this script to continue.
+    echo Attempting to install Ollama via winget...
+    winget install Ollama.Ollama -e --accept-package-agreements --accept-source-agreements
+    if %errorlevel% neq 0 (
+        echo [ERROR] Winget installation failed. 
+        echo Please install Ollama manually from: https://ollama.com/download
+        pause
+        exit /b 1
+    )
+    echo ✅ Ollama installed successfully! 
+    echo Please RESTART this script to refresh your system PATH and start.
     pause
     exit /b 0
 )
+echo ✅ Ollama is available.
 
 echo.
-echo [2/4] Starting Ollama Server...
-:: Launching the Ollama background engine in a hidden/minimized window
-start "Ollama Engine" /MIN ollama serve >nul 2>nul
-:: Give the engine a couple seconds to boot
-timeout /t 3 /nobreak >nul
-
-echo Pulling the required AI vision model (moondream)...
-call ollama pull moondream
+echo [2/5] Starting Ollama Server...
+:: Using 'start' to launch the background engine separately to isolate crashes
+start "Ollama Engine" /MIN cmd /c "ollama serve"
+:: Give the engine some time to boot
+timeout /t 5 /nobreak >nul
 
 echo.
-echo [3/4] Checking Python Environment...
+echo [3/5] Syncing AI Models...
+echo Ensuring the vision model (moondream) is downloaded...
+:: We use 'start /wait' so even if the pull crashes with a segfault, the main script survives
+start "Ollama Model Sync" /WAIT cmd /c "ollama pull moondream"
+
+echo.
+echo [4/5] Preparing Python Environment...
 if not exist ".\.venv\" (
-    echo Python environment not found. Creating a fresh virtual environment...
+    echo Virtual environment not found. Creating a fresh one...
     python -m venv .venv
     echo Installing required packages (this may take a few minutes)...
     call .\.venv\Scripts\python -m pip install --upgrade pip
     call .\.venv\Scripts\pip install -r requirements.txt
+    if %errorlevel% neq 0 (
+        echo [ERROR] Package installation failed. Check your internet and requirements.txt
+        pause
+        exit /b 1
+    )
     echo ✅ Dependencies installed successfully!
 ) else (
     echo ✅ Python environment is ready.
 )
 
 echo.
-echo [4/4] Starting FastAPI Backend...
-echo (The backend serves the pre-built React frontend entirely locally)
+echo [5/5] Starting FastAPI Backend...
 start "FastAPI Backend" cmd /k ".\.venv\Scripts\python -m uvicorn api:app --port 8000"
 
 echo.
 echo Opening Application...
-:: Giving the Python server 6 seconds to boot up to prevent browser connection errors
 timeout /t 6 /nobreak >nul
 start http://localhost:8000/
 
