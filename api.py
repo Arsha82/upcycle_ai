@@ -44,7 +44,13 @@ def read_root():
     """Serve the React SPA entry point."""
     index = os.path.join(_FRONTEND_DIST, "index.html")
     if os.path.isfile(index):
-        return FileResponse(index)
+        return FileResponse(
+            index,
+            headers={
+                "Cache-Control": "no-store, no-cache, must-revalidate",
+                "Pragma": "no-cache",
+            },
+        )
     return {"status": "Upcycle API is running smoothly. (Frontend not built yet)"}
 
 @app.get("/api/history")

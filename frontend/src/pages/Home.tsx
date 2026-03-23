@@ -1,152 +1,182 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Database, Cpu, ShieldCheck, Code, Activity, Leaf } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll } from 'framer-motion';
+import { Zap, Brain, BadgeDollarSign, Image as ImageIcon, ArrowRight, Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { HeroTitle3D } from '../components/HeroTitle3D';
+import ReactMarkdown from 'react-markdown';
 
 export const Home: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-       opacity: 1,
-       transition: { staggerChildren: 0.2 }
-    }
-  };
+  const navigate = useNavigate();
 
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
+  const [dbItems, setDbItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/history')
+      .then(res => res.json())
+      .then(data => {
+        setDbItems(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Failed to fetch history:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ container: scrollRef });
 
   return (
-    <div className="landing-page" style={{ padding: '2rem 3rem', overflowY: 'auto', height: '100%' }}>
-      <motion.div variants={containerVariants} initial="hidden" animate="visible">
+    <div ref={scrollRef} className="w-full h-screen overflow-y-scroll bg-transparent text-[#0a100d]  font-sans scrollbar-hide">
+      
+      {/* 
+        HERO SLIDE
+        Contains the brand, features (on top), and call to action. 
+      */}
+      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden pt-20">
         
-        {/* HERO SECTION */}
-        <motion.div variants={itemVariants} className="landing-hero" style={{ textAlign: 'center', margin: '4rem 0 6rem 0' }}>
-           <h1 style={{ fontSize: '3rem', fontWeight: 800, color: '#1e293b', marginBottom: '1rem', letterSpacing: '-1px' }}>
-              Autonomous <span style={{ color: '#10b981' }}>Upcycling</span> Intelligence
-           </h1>
-           <p style={{ fontSize: '1.2rem', color: '#64748b', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
-              Upcycle AI is an advanced offline-first platform powered by Local Large Language & Vision Models. It identifies raw waste materials in real-time and generates actionable DIY blueprints. Built for sustainability. Engineered for absolute privacy.
-           </p>
-        </motion.div>
+        {/* Soft gradient blend for text readability against global background */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/30 #0a100d]/80  #0a100d]/30 pointer-events-none z-0 transition-colors duration-700" />
 
-        {/* TECH STACK SECTION */}
-        <motion.div variants={itemVariants} style={{ marginBottom: '6rem' }}>
-           <h2 style={{ fontSize: '1.8rem', color: '#0f172a', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <LayersIcon /> Technology Stack
-           </h2>
-           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-              
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                 <div style={{ padding: '12px', background: '#eff6ff', color: '#3b82f6', width: 'fit-content', borderRadius: '12px' }}><Cpu size={24}/></div>
-                 <h3 style={{ fontSize: '1.2rem', color: '#1e293b' }}>Deep Learning & LLMs</h3>
-                 <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.5' }}>Powered by Ollama running Llama 3.2 Vision computationally optimizing deep spatial feature extraction and robust generative context reasoning offline.</p>
-              </div>
+        <div className="relative z-10 text-center w-full max-w-[90vw] xl:max-w-7xl mx-auto px-4 flex flex-col items-center">
+          <HeroTitle3D scrollY={scrollYProgress} />
+          
+          <button 
+            onClick={() => navigate('/scanner')}
+            className="relative z-30 -mt-12 md:-mt-24 lg:-mt-32 group px-8 py-4 bg-[#1e3a29]/80 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_rgba(30,58,41,0.3)] text-white rounded-full font-bold uppercase tracking-widest hover:bg-[#1b4332]/90 dark:hover:bg-[#a3c2b0]/90 dark:hover:text-[#0a100d] transition-all flex items-center gap-3 mb-16"
+          >
+            Start Scanning
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
 
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                 <div style={{ padding: '12px', background: '#f5f3ff', color: '#8b5cf6', width: 'fit-content', borderRadius: '12px' }}><Database size={24}/></div>
-                 <h3 style={{ fontSize: '1.2rem', color: '#1e293b' }}>RAG Engine</h3>
-                 <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.5' }}>ChromaDB semantic vector storage dynamically injects relevant upcycling blueprints into the LLM context limits preventing hallucinated ideas.</p>
-              </div>
+          {/* Feature Things On Top */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <FeatureCard icon={<Zap/>} title="Fully Offline" desc="Runs locally with ZERO API dependence." />
+            <FeatureCard icon={<Brain/>} title="RAG Grounded" desc="Context-aware from embedded upcycle datasets." />
+            <FeatureCard icon={<BadgeDollarSign/>} title="Zero Cost" desc="No subscriptions. 100% free open-source AI." />
+          </div>
+          
+          <p className="mt-12 reactive-text font-bold text-[1rem] tracking-[0.3em] uppercase animate-bounce">Scroll to view History ↓</p>
+        </div>
+      </section>
 
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                 <div style={{ padding: '12px', background: '#ecfdf5', color: '#10b981', width: 'fit-content', borderRadius: '12px' }}><Code size={24}/></div>
-                 <h3 style={{ fontSize: '1.2rem', color: '#1e293b' }}>Backend Framework</h3>
-                 <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.5' }}>Python FastAPI providing lightning-fast asynchronous REST APIs to serve ML inference, history tracking, and dynamic routing securely.</p>
-              </div>
+      {/* 
+        DATABASE FULL-SCREEN CARDS 
+        Iterating over history items
+      */}
+      {loading ? (
+        <section className="relative w-full h-screen flex items-center justify-center p-4">
+          <Loader2 className="w-12 h-12 text-[#1e3a29] #a3c2b0] animate-spin" />
+        </section>
+      ) : dbItems.length === 0 ? (
+        <section className="relative w-full h-screen flex items-center justify-center p-4">
+          <p className="text-[#0a100d]/60  font-sans font-bold tracking-widest uppercase">No history items found. Go scan something!</p>
+        </section>
+      ) : (
+        dbItems.map((item) => {
+          // Santize and format the logic for text presentation
+          const cleanDesc = (item.desc || "").replace(/.*\[CACHE HIT\].*\n?/ig, '').replace(/⚡/g, '').trim();
+          const firstIdea = (item.details || "").split('\n').find((line: string) => line.length > 20) || "AI-generated upcycled creation.";
+          const displayDesc = cleanDesc || firstIdea;
 
-              <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                 <div style={{ padding: '12px', background: '#fff1f2', color: '#f43f5e', width: 'fit-content', borderRadius: '12px' }}><ShieldCheck size={24}/></div>
-                 <h3 style={{ fontSize: '1.2rem', color: '#1e293b' }}>Absolute Privacy</h3>
-                 <p style={{ color: '#64748b', fontSize: '0.9rem', lineHeight: '1.5' }}>Because all models operate natively via Ollama without API integrations, personal images and workflow data never leave your local hardware.</p>
-              </div>
+          return (
+          <section key={item.id} className="relative w-full h-screen flex items-center justify-center p-4 md:p-12">
+            
+            {/* Subtle overlay for the specific slide to pop the card out */}
+            <div className="absolute inset-0 bg-white/60 #0a100d]/60 pointer-events-none z-0 transition-colors duration-700" />
 
-           </div>
-        </motion.div>
+            {/* Massive Glassmorphism Layout Container */}
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ margin: "-100px", once: false }}
+               transition={{ duration: 0.8, ease: "easeOut" }}
+               className="relative z-10 w-full max-w-7xl h-full max-h-[85vh] rounded-[2.5rem] glass-card flex flex-col overflow-hidden p-2"
+            >
+               
+               {/* Simple Top Navigation inside Card */}
+               <div className="flex justify-between items-center p-8 md:px-12 md:pt-10">
+                 <div className="flex items-center gap-6">
+                   <span className="font-bold text-xl tracking-wide text-[#0a100d] ">History</span>
+                   <span className="px-4 py-1.5 rounded-full border border-black/20  text-sm font-bold  hover:bg-black/5 :bg-white/10 transition-colors cursor-pointer text-[#0a100d]/90 ">Upcycled Details</span>
+                 </div>
+                 <div className="flex gap-1.5 opacity-60">
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#0a100d] "/>
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#0a100d] "/>
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#0a100d] "/>
+                 </div>
+               </div>
 
-        {/* WORKFLOW PIPELINE (SCROLL ANIMATED) */}
-        <motion.div variants={itemVariants} style={{ marginBottom: '6rem' }}>
-           <h2 style={{ fontSize: '1.8rem', color: '#0f172a', marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Activity className="text-emerald-500" /> Operational Architecture
-           </h2>
-           
-           <div style={{ position: 'relative', borderLeft: '2px dashed #cbd5e1', paddingLeft: '2.5rem', marginLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
-              
-              <div style={{ position: 'relative' }}>
-                 <div style={{ position: 'absolute', left: '-3.3rem', top: '0', background: '#10b981', color: 'white', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems:'center', justifyContent: 'center', fontWeight: 'bold' }}>1</div>
-                 <h3 style={{ fontSize: '1.3rem', color: '#1e293b', marginBottom: '0.5rem' }}>Image Acquisition & Normalization</h3>
-                 <p style={{ color: '#64748b', lineHeight: '1.6', maxWidth: '800px' }}>
-                    The user uploads an image of discarded materials. The React UI converts it to a binary payload and safely streams it to the FastAPI backend over HTTP dynamically handling concurrent requests via Uvicorn.
-                 </p>
-              </div>
+               {/* Content Layout Area */}
+               <div className="flex-1 flex flex-col md:flex-row px-8 md:px-12 pt-4 pb-12 gap-12 md:gap-8 overflow-y-auto scrollbar-hide">
+                  
+                  {/* Left Side: Massive Title and Description */}
+                  <div className="flex-1 flex flex-col justify-center">
+                     <h2 className="font-sans font-extrabold text-5xl md:text-7xl mb-6 leading-[1.1] tracking-tight">
+                       {item.title}
+                     </h2>
+                     <p className="opacity-80 text-lg md:text-xl font-bold leading-relaxed max-w-md font-sans">
+                       {displayDesc}
+                     </p>
+                  </div>
 
-              <div style={{ position: 'relative' }}>
-                 <div style={{ position: 'absolute', left: '-3.3rem', top: '0', background: '#10b981', color: 'white', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems:'center', justifyContent: 'center', fontWeight: 'bold' }}>2</div>
-                 <h3 style={{ fontSize: '1.3rem', color: '#1e293b', marginBottom: '0.5rem' }}>Vision Heuristics & Material Extraction</h3>
-                 <p style={{ color: '#64748b', lineHeight: '1.6', maxWidth: '800px' }}>
-                    Instead of brittle classifiers, we pipe the image instantly to Llama 3.2 Vision via the Ollama CLI. The multimodal intelligence observes structural bounds and isolates key recognizable items embedded within your environment.
-                 </p>
-              </div>
+                  {/* Right Side: Details and Scanned Showcase */}
+                  <div className="flex-1 flex flex-col justify-center md:pl-16">
+                     <h3 className="font-extrabold text-xl mb-4 uppercase tracking-widest border-b border-current pb-2 w-max opacity-90">Details</h3>
+                     <div className="opacity-80 font-medium text-base font-sans mb-10 max-h-[30vh] overflow-y-auto pr-4 scrollbar-hide">
+                       <ReactMarkdown 
+                         components={{
+                           h1: ({node, ...props}: any) => <h1 className="font-serif text-xl font-bold mb-4" {...props} />,
+                           h2: ({node, ...props}: any) => <h2 className="font-serif text-lg font-bold mb-3" {...props} />,
+                           h3: ({node, ...props}: any) => <h3 className="font-sans text-md font-bold mb-2 uppercase tracking-wide text-[#1e3a29]" {...props} />,
+                           p: ({node, ...props}: any) => <p className="mb-4 leading-relaxed" {...props} />,
+                           ul: ({node, ...props}: any) => <ul className="list-disc ml-6 mb-4 space-y-1" {...props} />,
+                           ol: ({node, ...props}: any) => <ol className="list-decimal ml-6 mb-4 space-y-1" {...props} />,
+                           li: ({node, ...props}: any) => <li className="leading-relaxed" {...props} />,
+                           strong: ({node, ...props}: any) => <strong className="font-bold text-[#1e3a29] tracking-wide" {...props} />,
+                         }}
+                       >
+                         {item.details?.replace(/.*\[CACHE HIT\].*\n?/ig, '').replace(/⚡/g, '').trim()}
+                       </ReactMarkdown>
+                     </div>
 
-              <div style={{ position: 'relative' }}>
-                 <div style={{ position: 'absolute', left: '-3.3rem', top: '0', background: '#10b981', color: 'white', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems:'center', justifyContent: 'center', fontWeight: 'bold' }}>3</div>
-                 <h3 style={{ fontSize: '1.3rem', color: '#1e293b', marginBottom: '0.5rem' }}>Retrieval-Augmented Generation (RAG)</h3>
-                 <p style={{ color: '#64748b', lineHeight: '1.6', maxWidth: '800px' }}>
-                    Identified materials are queried against ChromaDB, our persistent vector store. Highly correlated community-verified tutorials and upcycling knowledge blocks are retrieved via dense embedding similarity to ground the next inference cycle.
-                 </p>
-              </div>
+                     <h3 className="font-extrabold text-xl mb-6 uppercase tracking-widest border-b border-current pb-2 w-max opacity-90">Scanned Source</h3>
+                     <div className="w-[180px] h-[180px] rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/30 mb-8 cursor-pointer group inline-block bg-black/20 p-1">
+                        {item.bgImage ? (
+                          <img src={item.bgImage} alt="Scanned Raw Data" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-black/20 "><ImageIcon className="w-8 h-8"/></div>
+                        )}
+                     </div>
 
-              <div style={{ position: 'relative' }}>
-                 <div style={{ position: 'absolute', left: '-3.3rem', top: '0', background: '#10b981', color: 'white', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems:'center', justifyContent: 'center', fontWeight: 'bold' }}>4</div>
-                 <h3 style={{ fontSize: '1.3rem', color: '#1e293b', marginBottom: '0.5rem' }}>Data Visualization & Idea Synthesis</h3>
-                 <p style={{ color: '#64748b', lineHeight: '1.6', maxWidth: '800px' }}>
-                    The server streams standard LLM text buffers line-by-line via asynchronous Generators back to the client. Real-time metrics log the interaction to create session-proof history auditing trails inside the Explore dashboard.
-                 </p>
-              </div>
+                     <button 
+                       onClick={() => navigate(`/item/${item.id}`)}
+                       className="px-8 py-4 bg-black/5  hover:bg-black hover:text-white :bg-white text-[#0a100d]  :text-[#090d0b] border border-black/20  rounded-full font-bold uppercase tracking-[0.2em] transition-all duration-300 w-fit flex items-center gap-3 backdrop-blur-md shadow-lg hover:shadow-xl mt-auto"
+                     >
+                       Learn More <ArrowRight className="w-5 h-5" />
+                     </button>
+                  </div>
+               </div>
 
-           </div>
-        </motion.div>
+            </motion.div>
 
-        {/* DATA SET & TRAINING METRICS */}
-        <motion.div variants={itemVariants} className="card primary-dark" style={{ marginBottom: '4rem', display: 'flex', gap: '3rem', flexWrap: 'wrap', backgroundColor: '#1e3a29' }}>
-           <div style={{ flex: '1 1 300px' }}>
-              <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white' }}>
-                 <Leaf size={24} /> Sustainable Core
-              </h2>
-              <p style={{ color: '#a3c2b0', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-                 Upcycle AI was built natively off community-harvested upcycling datasets. The RAG architecture bypasses standard LLM safety refusals on obscure tool usage, enabling highly creative, safe, and robust DIY tutorials for a circular economy.
-              </p>
-           </div>
-           <div style={{ flex: '1 1 300px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
-                 <div style={{ fontSize: '2rem', fontWeight: 700, color: '#60a5fa' }}>Ollama</div>
-                 <div style={{ fontSize: '0.85rem', color: '#a3c2b0', marginTop: '0.2rem' }}>Inference Engine</div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
-                 <div style={{ fontSize: '2rem', fontWeight: 700, color: '#34d399' }}>100%</div>
-                 <div style={{ fontSize: '0.85rem', color: '#a3c2b0', marginTop: '0.2rem' }}>Offline Execution</div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
-                 <div style={{ fontSize: '2rem', fontWeight: 700, color: '#f472b6' }}>0ms</div>
-                 <div style={{ fontSize: '0.85rem', color: '#a3c2b0', marginTop: '0.2rem' }}>Network API Latency</div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
-                 <div style={{ fontSize: '2rem', fontWeight: 700, color: '#fbbf24' }}>ChromaDB</div>
-                 <div style={{ fontSize: '0.85rem', color: '#a3c2b0', marginTop: '0.2rem' }}>Semantic Vector Storage</div>
-              </div>
-           </div>
-        </motion.div>
-
-      </motion.div>
+          </section>
+          );
+        })
+      )}
+      
     </div>
   );
 };
 
-// Helper for Layers icon since we maxed our imports
-const LayersIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-500">
-    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-    <polyline points="2 12 12 17 22 12"></polyline>
-    <polyline points="2 17 12 22 22 17"></polyline>
-  </svg>
+const FeatureCard = ({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) => (
+  <div className="glass-card flex flex-col items-center text-center p-6 transition-all duration-700">
+    <div className="p-4 bg-[#1e3a29]/80 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_rgba(30,58,41,0.3)] text-white #a3c2b0] rounded-full mb-4">
+      {icon}
+    </div>
+    <h4 className="font-extrabold text-2xl mb-2">{title}</h4>
+    <p className="opacity-80 font-bold text-[0.95rem]">{desc}</p>
+  </div>
 );
+
