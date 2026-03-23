@@ -62,8 +62,8 @@ uvicorn api:app --port 8000 &
 BACKEND_PID=$!
 
 echo ""
-echo "Opening Application..."
-sleep 6
+echo "Opening Application... (12s countdown)"
+sleep 12
 if command -v xdg-open > /dev/null; then
   xdg-open http://localhost:8000/
 elif command -v open > /dev/null; then

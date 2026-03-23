@@ -27,8 +27,8 @@ echo [3/3] Launching App...
 start "Upcycle AI - FastAPI Backend" cmd /k ".\.venv\Scripts\python -m uvicorn api:app --port 8000"
 
 echo.
-echo Application is initializing...
-timeout /t 6 /nobreak >nul
+echo Application is initializing... (12s countdown)
+timeout /t 12 /nobreak >nul
 start http://localhost:8000/
 
 echo ✅ Success! The server is running in its own window.
