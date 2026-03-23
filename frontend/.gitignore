@@ -8,8 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
+# dist is tracked so the app can be easily cloned and run without npm installed
+# dist
+# dist-ssr
 *.local
 
 # Editor directories and files
