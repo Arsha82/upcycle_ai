@@ -47,16 +47,19 @@ echo ✅ Ollama is available.
 
 echo.
 echo [2/5] Starting Ollama Server...
-:: Using 'start' to launch the background engine separately to isolate crashes
+:: Using 'start' to launch the background engine separately
 start "Ollama Engine" /MIN cmd /c "ollama serve"
 :: Give the engine some time to boot
 timeout /t 5 /nobreak >nul
 
 echo.
 echo [3/5] Syncing AI Models...
+:: CRITICAL: We NO LONGER use '/WAIT' or 'call' for the pull because if your
+:: Ollama version is buggy (mlx platform error), it will segfault (0xc0000005)
+:: and kill this script. We now launch pull in its own window so the script survives.
 echo Ensuring the vision model (moondream) is downloaded...
-:: We use 'start /wait' so even if the pull crashes with a segfault, the main script survives
-start "Ollama Model Sync" /WAIT cmd /c "ollama pull moondream"
+echo (If a separate window flashes a crash dump, please UPDATE Ollama at https://ollama.com)
+start "Ollama Model Sync" cmd /c "ollama pull moondream"
 
 echo.
 echo [4/5] Preparing Python Environment...
